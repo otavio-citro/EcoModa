@@ -1,0 +1,31 @@
+<%- include ('../includes/header.ejs', {titulo: 'painel administrativo'}) %>
+
+ <main>
+        <h2>Lista de Categorias</h2>
+        <a href="/categorias/novo" class="btn btn-principal">Adicionar categoria</a>
+
+        <table class="dados-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let categorias of dadoscategorias) { %>
+                <tr>
+                    <td><%= categorias.nome_categoria %></td>
+                    <td><%= categorias.ativo %></td>
+                    <td class="acoes">
+                        <a href="/categorias/editar/<%= categorias.id_categoria %>" class="btn btn-edit">Editar</a>
+                        <form action="/categorias/excluir/<%= categorias.id_categoria %>" method="post">
+                            <button type="submit" class="btn btn-delete">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </main>
+
+<%- include ('../includes/footer.ejs') %>

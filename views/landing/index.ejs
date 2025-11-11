@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <title>Eco Moda</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+</head>
+
+<body id="top">
+    <header class="header">
+        <nav class="nav">
+            <a href="#top">Inicio</a>
+
+
+
+
+            <div class="menu-item">
+                <a href="#">Masculino</a>
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <div class="produto">
+                            <img src="" alt="">
+                            <p>Camisetas Básicas</p>
+                        </div>
+                        <div class="produto">
+                            <img src="" alt="">
+                            <p>Bermudas Jeans</p>
+                        </div>
+                        <div class="produto">
+                            <img src="" alt="">
+                            <p>Jaquetas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <a href="#">Feminino</a>
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <div class="produto">
+                            <img src="" alt="">
+                            <p>Vestidos</p>
+                        </div>
+                        <div class="produto">
+                            <img src="" alt="">
+                            <p>Sapatos</p>
+                        </div>
+                        <div class="produto">
+                            <img src="" alt="">
+                            <p>Blusas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <a href="#">Infantil</a>
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <div class="produto">
+                            <img src="" alt="">
+                            <p>Camisetas</p>
+                        </div>
+                        <div class="produto">
+                            <img src="" alt="">
+                            <p>Tenis</p>
+                        </div>
+                        <div class="produto">
+                            <img src="" alt="">
+                            <p>Calças</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="/admin/login" class="login"> <i class="fa-solid fa-circle-user"></i></a>
+        </nav>
+    </header>
+       <main class="main-content" >
+        <div class="container">
+            <!-- Carrossel -->
+            <div class="carousel-container">
+                <!-- Slides -->
+                <div class="carousel-wrapper" >
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide active"  style="background-image: url('../img/banner1.png');">
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide" style="background-image: url('../img/banner2.png');">
+                
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-slide" style="background-image: url('../img/banner3.png');">
+            
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="carousel-slide" style="background-image: url('../img/banner4.png');">
+                        
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="carousel-slide" style="background-image: url('../img/banner5.png');">
+                       
+                    </div>
+                </div>
+
+                <!-- Setas de Navegação -->
+                <button class="carousel-arrow carousel-arrow-prev" aria-label="Slide anterior">
+                    <span class="arrow-icon">&lt;</span>
+                </button>
+                <button class="carousel-arrow carousel-arrow-next" aria-label="Próximo slide">
+                    <span class="arrow-icon">&gt;</span>
+                </button>
+
+                <!-- Indicadores de Posição (Bolinhas) -->
+                <div class="carousel-indicators">
+                    <button class="indicator-dot active" aria-label="Ir para slide 1"></button>
+                    <button class="indicator-dot" aria-label="Ir para slide 2"></button>
+                    <button class="indicator-dot" aria-label="Ir para slide 3"></button>
+                    <button class="indicator-dot" aria-label="Ir para slide 4"></button>
+                    <button class="indicator-dot" aria-label="Ir para slide 5"></button>
+                </div>
+            </div>
+
+            <!-- Informações do Slide Atual -->
+           
+        </div>
+    </main>
+
+<!-- ============================================
+   SEÇÃO DE PRINCIPAIS PRODUTOS (CARROSSEL) - V2
+   ============================================ -->
+<section class="product-carousel-section-v2">
+    <div class="carousel-container-v2">
+        <h2 class="section-title-v2">Principais Produtos</h2>
+    
+
+        <div class="product-carousel-wrapper-v2">
+            <!-- Setas de Navegação -->
+            <button class="product-carousel-arrow-v2 product-carousel-arrow-prev-v2" aria-label="Slide anterior">
+                <span class="arrow-icon-v2">&lt;</span>
+            </button>
+            <button class="product-carousel-arrow-v2 product-carousel-arrow-next-v2" aria-label="Próximo slide">
+                <span class="arrow-icon-v2">&gt;</span>
+            </button>
+
+            <!-- Track que contém todos os slides -->
+            <div class="product-carousel-track-v2">
+                
+                <!-- SLIDE 1 (3 Produtos) -->
+                <div class="product-slide-v2">
+                    <!-- Produto 1: Calça Chino -->
+                    <div class="product-card-v2">
+                        <a href="#" title="Ver Calça Chino">
+                            <div class="product-image-container-v2">
+                                <img src="./img/modainfantil.png" alt="" class="product-image-v2">
+                            </div>
+                            <h2 class="product-description-v2">Moda Infantil</h2> 
+                        </a>
+                    </div>
+
+                    <!-- Produto 2: Camiseta Branca -->
+                    <div class="product-card-v2">
+                        <a href="#" title="Ver Camiseta Branca">
+                            <div class="product-image-container-v2">
+                                <img src="" alt="" class="product-image-v2">
+                            </div>
+                            <h2 class="product-description-v2">Moda Juvenil</h2>
+                        </a>
+                    </div>
+
+                    <!-- Produto 3: Regata Branca -->
+                    <div class="product-card-v2">
+                        <a href="#" title="Ver Regata Branca">
+                            <div class="product-image-container-v2">
+                                <img src="https://via.placeholder.com/280x350/FFFFFF/000000?text=Regata+Branca" alt="Regata Básica Canelada Branca" class="product-image-v2">
+                            </div>
+                            <h2 class="product-description-v2">Moda Masculina</h2>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2 (3 Produtos) -->
+                <div class="product-slide-v2">
+                    <!-- Produto 4: Jaqueta de Lã -->
+                    <div class="product-card-v2">
+                        <a href="#" title="Ver Jaqueta de Lã">
+                            <div class="product-image-container-v2">
+                                <img src="https://via.placeholder.com/280x350/333333/FFFFFF?text=Jaqueta+de+La" alt="Jaqueta de Lã Premium Cinza" class="product-image-v2">
+                            </div>
+                            <p class="product-description-v2">Jaqueta de Lã Premium Cinza</p>
+                            <p class="product-price-v2">R$ 249,99 <span>à vista</span></p>
+                        </a>
+                    </div>
+
+                    <!-- Produto 5: Tênis Branco -->
+                    <div class="product-card-v2">
+                        <a href="#" title="Ver Tênis Branco">
+                            <div class="product-image-container-v2">
+                                <img src="https://via.placeholder.com/280x350/F0F0F0/000000?text=Tenis+Branco" alt="Tênis Casual Cano Baixo Ace Branco" class="product-image-v2">
+                            </div>
+                            <p class="product-description-v2">Tênis Casual Cano Baixo Ace Branco</p>
+                            <p class="product-price-v2">R$ 169,99 <span>à vista</span></p>
+                        </a>
+                    </div>
+
+                    <!-- Produto 6: Camiseta Preta -->
+                    <div class="product-card-v2">
+                        <a href="#" title="Ver Camiseta Preta">
+                            <div class="product-image-container-v2">
+                                <img src="https://via.placeholder.com/280x350/000000/FFFFFF?text=Camiseta+Preta" alt="Camiseta de Algodão Básica Manga Curta Preto" class="product-image-v2">
+                            </div>
+                            <p class="product-description-v2">Camiseta de Algodão Básica Manga Curta Preto</p>
+                            <p class="product-price-v2">R$ 39,99 <span>à vista</span></p>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- SLIDE 3 (3 Produtos) -->
+                <div class="product-slide-v2">
+                    <!-- Produto 7: Calça Jeans -->
+                    <div class="product-card-v2">
+                        <a href="#" title="Ver Calça Jeans">
+                            <div class="product-image-container-v2">
+                                <img src="https://via.placeholder.com/280x350/4682B4/FFFFFF?text=Calca+Jeans" alt="Calça Jeans Slim Fit Azul Escuro" class="product-image-v2">
+                            </div>
+                            <p class="product-description-v2">Calça Jeans Slim Fit Azul Escuro</p>
+                            <p class="product-price-v2">R$ 129,99 <span>à vista</span></p>
+                        </a>
+                    </div>
+
+                    <!-- Produto 8: Moletom -->
+                    <div class="product-card-v2">
+                        <a href="#" title="Ver Moletom">
+                            <div class="product-image-container-v2">
+                                <img src="https://via.placeholder.com/280x350/808080/FFFFFF?text=Moletom" alt="Moletom Canguru com Capuz Cinza" class="product-image-v2">
+                            </div>
+                            <p class="product-description-v2">Moletom Canguru com Capuz Cinza</p>
+                            <p class="product-price-v2">R$ 99,99 <span>à vista</span></p>
+                        </a>
+                    </div>
+                    
+                    <!-- Produto 9: Camisa Polo -->
+                    <div class="product-card-v2">
+                        <a href="#" title="Ver Camisa Polo">
+                            <div class="product-image-container-v2">
+                                <img src="https://via.placeholder.com/280x350/008000/FFFFFF?text=Camisa+Polo" alt="Camisa Polo Piquet Verde Musgo" class="product-image-v2">
+                            </div>
+                            <p class="product-description-v2">Camisa Polo Piquet Verde Musgo</p>
+                            <p class="product-price-v2">R$ 79,99 <span>à vista</span></p>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="product-carousel-indicators-v2">
+               
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+    <Script>
+
+
+        class ImageCarousel {
+            constructor() {
+                // Elementos do DOM
+                this.slides = document.querySelectorAll('.carousel-slide');
+                this.indicators = document.querySelectorAll('.indicator-dot');
+                this.prevButton = document.querySelector('.carousel-arrow-prev');
+                this.nextButton = document.querySelector('.carousel-arrow-next');
+                this.currentSlideSpan = document.getElementById('current-slide');
+                this.totalSlidesSpan = document.getElementById('total-slides');
+
+                // Estado
+                this.currentSlide = 0;
+                this.totalSlides = this.slides.length;
+                this.autoplayInterval = null;
+                this.autoplayDelay = 5000; // 5 segundos
+
+                // Inicializar
+                this.init();
+            }
+
+            /**
+             * Inicializa o carrossel
+             */
+            init() {
+                // Adicionar event listeners
+                this.prevButton.addEventListener('click', () => this.goToPrevSlide());
+                this.nextButton.addEventListener('click', () => this.goToNextSlide());
+
+                // Adicionar event listeners aos indicadores
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                // Iniciar autoplay
+                this.startAutoplay();
+
+                // Pausar autoplay ao passar o mouse sobre o carrossel
+                const carouselContainer = document.querySelector('.carousel-container');
+                carouselContainer.addEventListener('mouseenter', () => this.stopAutoplay());
+                carouselContainer.addEventListener('mouseleave', () => this.startAutoplay());
+
+                // Atualizar informações iniciais
+                this.updateInfo();
+            }
+
+            /**
+             * Vai para um slide específico
+             * @param {number} index - Índice do slide
+             */
+            goToSlide(index) {
+                // Validar índice
+                if (index < 0 || index >= this.totalSlides) {
+                    return;
+                }
+
+                // Remover classe 'active' do slide e indicador atuais
+                this.slides[this.currentSlide].classList.remove('active');
+                this.indicators[this.currentSlide].classList.remove('active');
+
+                // Atualizar índice atual
+                this.currentSlide = index;
+
+                // Adicionar classe 'active' ao novo slide e indicador
+                this.slides[this.currentSlide].classList.add('active');
+                this.indicators[this.currentSlide].classList.add('active');
+
+                // Atualizar informações
+                this.updateInfo();
+
+                // Reiniciar autoplay
+                this.restartAutoplay();
+            }
+
+            /**
+             * Vai para o próximo slide
+             */
+            goToNextSlide() {
+                const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+                this.goToSlide(nextIndex);
+            }
+
+            /**
+             * Vai para o slide anterior
+             */
+            goToPrevSlide() {
+                const prevIndex = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.goToSlide(prevIndex);
+            }
+
+            /**
+             * Inicia o autoplay
+             */
+            startAutoplay() {
+                if (this.autoplayInterval) {
+                    return; // Já está rodando
+                }
+
+                this.autoplayInterval = setInterval(() => {
+                    this.goToNextSlide();
+                }, this.autoplayDelay);
+            }
+
+            /**
+             * Para o autoplay
+             */
+            stopAutoplay() {
+                if (this.autoplayInterval) {
+                    clearInterval(this.autoplayInterval);
+                    this.autoplayInterval = null;
+                }
+            }
+
+            /**
+             * Reinicia o autoplay
+             */
+            restartAutoplay() {
+                this.stopAutoplay();
+                this.startAutoplay();
+            }
+
+            /**
+             * Atualiza as informações do slide atual
+             */
+            updateInfo() {
+                if (this.currentSlideSpan && this.totalSlidesSpan) {
+                    this.currentSlideSpan.textContent = this.currentSlide + 1;
+                    this.totalSlidesSpan.textContent = this.totalSlides;
+                }
+            }
+        }
+
+        /**
+         * Inicializar o carrossel quando o DOM estiver pronto
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            new ImageCarousel();
+        });
+
+    </Script>
+    
+        <a href="/admin/dashboard" class="botao"> <i class="fa-solid fa-arrow-right seta"></i></a>
+    
+
+    <script>
+        /**
+ * Classe para controlar o Carrossel de Produtos - V2
+ * Funcionalidade: Navegação por setas, Autoplay a cada 30 segundos,
+ *                 Setas condicionais e Indicadores de slide.
+ *                 Adaptado para slides de 3 cards.
+ */
+class ProductCarouselV2 {
+    constructor(selector) {
+        // Elementos do DOM
+        this.wrapper = document.querySelector(selector);
+        this.track = this.wrapper.querySelector('.product-carousel-track-v2');
+        this.slides = this.wrapper.querySelectorAll('.product-slide-v2');
+        this.prevButton = this.wrapper.querySelector('.product-carousel-arrow-prev-v2');
+        this.nextButton = this.wrapper.querySelector('.product-carousel-arrow-next-v2');
+        this.indicatorsContainer = this.wrapper.querySelector('.product-carousel-indicators-v2');
+
+        // Estado
+        this.currentSlideIndex = 0;
+        this.totalSlides = this.slides.length;
+        this.autoplayInterval = null;
+        this.autoplayDelay = 30000; // 30 segundos, conforme solicitado
+        
+        // Inicializar
+        if (this.totalSlides > 0) {
+            this.init();
+        }
+    }
+
+    /**
+     * Inicializa o carrossel
+     */
+    init() {
+        // 1. Gerar e adicionar event listeners aos indicadores
+        this.generateIndicators();
+
+        // 2. Adicionar event listeners às setas
+        this.prevButton.addEventListener('click', () => this.goToPrevSlide());
+        this.nextButton.addEventListener('click', () => this.goToNextSlide());
+
+        // 3. Iniciar autoplay
+        this.startAutoplay();
+
+        // 4. Pausar autoplay ao passar o mouse sobre o carrossel
+        this.wrapper.addEventListener('mouseenter', () => this.stopAutoplay());
+        this.wrapper.addEventListener('mouseleave', () => this.startAutoplay());
+
+        // 5. Atualizar a UI inicial (setas e indicadores)
+        this.updateUI();
+    }
+
+    /**
+     * Gera os indicadores de slide (bolinhas) no HTML
+     */
+    generateIndicators() {
+        if (!this.indicatorsContainer) return;
+
+        for (let i = 0; i < this.totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('indicator-dot-v2');
+            dot.setAttribute('aria-label', `Ir para slide ${i + 1}`);
+            dot.addEventListener('click', () => this.goToSlide(i));
+            this.indicatorsContainer.appendChild(dot);
+        }
+        this.indicators = this.indicatorsContainer.querySelectorAll('.indicator-dot-v2');
+    }
+
+    /**
+     * Move o carrossel para um slide específico
+     * @param {number} index - Índice do slide
+     */
+    goToSlide(index) {
+        // Lógica de navegação finita (não volta ao início/fim automaticamente)
+        if (index < 0 || index >= this.totalSlides) {
+            return;
+        }
+
+        this.currentSlideIndex = index;
+        
+        // Calcula a distância de translação (em porcentagem)
+        const offset = -this.currentSlideIndex * 100;
+        this.track.style.transform = `translateX(${offset}%)`;
+
+        // Atualiza a UI (setas e indicadores)
+        this.updateUI();
+
+        // Reiniciar autoplay
+        this.restartAutoplay();
+    }
+
+    /**
+     * Atualiza a visibilidade das setas e o estado dos indicadores
+     */
+    updateUI() {
+        // 1. Atualizar visibilidade das setas (Setas Condicionais)
+        // A seta 'Anterior' some no primeiro slide (index 0)
+        if (this.currentSlideIndex === 0) {
+            this.prevButton.classList.add('hidden');
+        } else {
+            this.prevButton.classList.remove('hidden');
+        }
+
+        // A seta 'Próximo' some no último slide (index totalSlides - 1)
+        if (this.currentSlideIndex === this.totalSlides - 1) {
+            this.nextButton.classList.add('hidden');
+        } else {
+            this.nextButton.classList.remove('hidden');
+        }
+
+        // 2. Atualizar indicadores
+        if (this.indicators) {
+            this.indicators.forEach((dot, index) => {
+                if (index === this.currentSlideIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+    }
+
+    /**
+     * Vai para o próximo slide
+     */
+    goToNextSlide() {
+        const nextIndex = this.currentSlideIndex + 1;
+        this.goToSlide(nextIndex);
+    }
+
+    /**
+     * Vai para o slide anterior
+     */
+    goToPrevSlide() {
+        const prevIndex = this.currentSlideIndex - 1;
+        this.goToSlide(prevIndex);
+    }
+
+    /**
+     * Inicia o autoplay
+     */
+    startAutoplay() {
+        if (this.autoplayInterval) {
+            return; // Já está rodando
+        }
+
+        this.autoplayInterval = setInterval(() => {
+            // Lógica de loop para o autoplay
+            const nextIndex = (this.currentSlideIndex + 1) % this.totalSlides;
+            this.goToSlide(nextIndex);
+        }, this.autoplayDelay);
+    }
+
+    /**
+     * Para o autoplay
+     */
+    stopAutoplay() {
+        if (this.autoplayInterval) {
+            clearInterval(this.autoplayInterval);
+            this.autoplayInterval = null;
+        }
+    }
+
+    /**
+     * Reinicia o autoplay
+     */
+    restartAutoplay() {
+        this.stopAutoplay();
+        this.startAutoplay();
+    }
+}
+
+/**
+ * Inicializar o carrossel de produtos quando o DOM estiver pronto
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    // O seletor é o wrapper do carrossel de produtos
+    const carouselWrapper = document.querySelector('.product-carousel-wrapper-v2');
+    if (carouselWrapper) {
+        new ProductCarouselV2('.product-carousel-wrapper-v2');
+    }
+});
+
+
+
+
+    </script>
+
+<script>
+    // Encontra o link "Início" (ajuste o seletor conforme necessário, por exemplo, por ID ou classe)
+document.querySelector('a[href="#top"]').addEventListener('click', function(e) {
+    // Impede o comportamento padrão do link
+    e.preventDefault(); 
+    
+    // Rola a janela para o topo
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Adiciona o efeito suave
+    });
+});
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const carrosselFaixa = document.querySelector('.carrossel-testemunhos .carrossel-faixa');
+    const testemunhos = document.querySelectorAll('.carrossel-testemunhos .testemunho-item');
+    const prevBtn = document.querySelector('.carrossel-testemunhos .prev-btn');
+    const nextBtn = document.querySelector('.carrossel-testemunhos .next-btn');
+    const indicadores = document.querySelectorAll('.carrossel-testemunhos .indicador-ponto');
+
+    if (!carrosselFaixa || testemunhos.length === 0) {
+        // Se o carrossel não existir, não faz nada.
+        return;
+    }
+
+    let indiceAtual = 0;
+    const totalTestemunhos = testemunhos.length;
+
+    // Função para atualizar a exibição do carrossel
+    function atualizarCarrossel() {
+        // Calcula o deslocamento necessário (em porcentagem)
+        // Cada testemunho ocupa 100% da largura do carrossel-faixa
+        const deslocamento = -indiceAtual * 100;
+        carrosselFaixa.style.transform = `translateX(${deslocamento}%)`;
+
+        // Atualiza os indicadores
+        indicadores.forEach((indicador, index) => {
+            indicador.classList.remove('ativo');
+            if (index === indiceAtual) {
+                indicador.classList.add('ativo');
+            }
+        });
+    }
+
+    // Navegação para o próximo slide
+    function proximoSlide() {
+        indiceAtual = (indiceAtual + 1) % totalTestemunhos;
+        atualizarCarrossel();
+    }
+
+    // Navegação para o slide anterior
+    function slideAnterior() {
+        indiceAtual = (indiceAtual - 1 + totalTestemunhos) % totalTestemunhos;
+        atualizarCarrossel();
+    }
+
+    // Event Listeners para os botões
+    if (prevBtn) {
+        prevBtn.addEventListener('click', slideAnterior);
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', proximoSlide);
+    }
+
+    // Event Listeners para os indicadores
+    indicadores.forEach(indicador => {
+        indicador.addEventListener('click', (e) => {
+            const slideIndex = parseInt(e.target.getAttribute('data-slide'));
+            indiceAtual = slideIndex;
+            atualizarCarrossel();
+        });
+    });
+
+    // Inicia o carrossel no primeiro slide
+    atualizarCarrossel();
+
+    // Opcional: Auto-play (a cada 5 segundos)
+    setInterval(proximoSlide, 5000);
+});
+
+</script>
+
+
+<section id="produtos-principais-fim" style="height: 50px; background-color: #FFFFFF;"></section>
+
+<!-- 1. Seção de Diferenciais/Vantagens (Grid) -->
+<section id="vantagens" class="section-padrao reveal">
+        <div class="container-padrao reveal">
+            <h2 class="titulo-secao reveal">A Essência da Nossa Marca.</h2>
+            <div class="grid-diferenciais reveal">
+                <div class="card-diferencial reveal">
+                    <i class="icone-diferencial fas fa-gem reveal"></i>
+                    <h3 class="subtitulo-diferencial reveal">Qualidade Premium</h3>
+                    <p class="texto-diferencial reveal">Foco em materiais duráveis e acabamento impecável, garantindo longevidade a cada peça.</p>
+                </div> 
+                <div class="card-diferencial reveal">
+                    <i class="icone-diferencial fas fa-infinity reveal"></i>
+                    <h3 class="subtitulo-diferencial reveal">Design Atemporal</h3>
+                    <p class="texto-diferencial reveal">Peças modernas e minimalistas que transcendem as tendências passageiras.</p>
+                </div>
+                <div class="card-diferencial reveal">
+                    <i class="icone-diferencial fas fa-leaf reveal"></i>
+                    <h3 class="subtitulo-diferencial reveal">Produção Consciente</h3>
+                    <p class="texto-diferencial reveal">Compromisso com o fornecimento ético e processos de produção sustentáveis.</p>
+                </div>
+                <div class="card-diferencial reveal">
+                    <i class="icone-diferencial fas fa-truck reveal"></i>
+                    <h3 class="subtitulo-diferencial reveal">Frete Rápido</h3>
+                    <p class="texto-diferencial reveal">Entrega garantida e eficiente para que você vista sua nova peça o quanto antes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Seção de Testemunhos/Prova Social (Carrossel) -->
+    <section id="testemunhos" class="section-padrao fundo-cinza-claro reveal">
+        <div class="container-padrao reveal">
+            <h2 class="titulo-secao reveal">O Que Nossos Clientes Dizem.</h2>
+            <div class="carrossel-testemunhos reveal">
+                <div class="carrossel-faixa reveal">
+                    <!-- Testemunho 1 -->
+                    <div class="testemunho-item reveal">
+                        <blockquote class="citacao-testemunho reveal">
+                            "A qualidade superou minhas expectativas. As peças são exatamente como nas fotos, e o caimento é perfeito. Virei cliente fiel!"
+                        </blockquote>
+                        <p class="autor-testemunho reveal">— Ana C., São Paulo/SP</p>
+                    </div>
+                    <!-- Testemunho 2 -->
+                    <div class="testemunho-item reveal">
+                        <blockquote class="citacao-testemunho reveal">
+                            "Finalmente encontrei uma marca que une design minimalista com responsabilidade. O 'Manifesto' deles realmente me conquistou."
+                        </blockquote>
+                        <p class="autor-testemunho reveal">— Bruno M., Curitiba/PR</p>
+                    </div>
+                    <!-- Testemunho 3 -->
+                    <div class="testemunho-item reveal">
+                        <blockquote class="citacao-testemunho reveal">
+                            "O processo de compra foi simples e a entrega, incrivelmente rápida. A embalagem é um show à parte. Recomendo!"
+                        </blockquote>
+                        <p class="autor-testemunho reveal">— Carla S., Rio de Janeiro/RJ</p>
+                    </div>
+                </div>
+                <button class="carrossel-btn prev-btn reveal"><i class="fas fa-chevron-left reveal"></i></button>
+                <button class="carrossel-btn next-btn reveal"><i class="fas fa-chevron-right reveal"></i></button>
+                <div class="carrossel-indicadores ">
+                    <span class="indicador-ponto ativo " data-slide="0"></span>
+                    <span class="indicador-ponto " data-slide="1"></span>
+                    <span class="indicador-ponto " data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Seção "Nosso Manifesto" ou História da Marca -->
+    <section id="manifesto" class="section-padrao reveal">
+        <div class="container-padrao layout-manifesto reveal">
+            <div class="texto-manifesto reveal">
+                <h2 class="titulo-secao alinhamento-esquerda reveal">Vista Sua História.</h2>
+                <blockquote class="citacao-manifesto reveal">
+                    "Nascemos da crença de que a verdadeira elegância reside na simplicidade. Em um mundo de excessos, propomos o essencial: peças de vestuário que não apenas vestem, mas que se tornam parte da sua narrativa. Nosso manifesto é um compromisso com a qualidade inegável, o design atemporal e a produção consciente. Não seguimos tendências; criamos o básico que perdura. Vista menos, escolha melhor."
+                </blockquote>
+                <p class="assinatura-manifesto reveal">— A Equipe Essencial.</p>
+            </div>
+            <div class="imagem-manifesto reveal">
+                <!-- Imagem de alto contraste P&B (será estilizada com um fundo preto e uma borda branca, simulando a imagem) -->
+                <div class="imagem-placeholder reveal">
+                    <p>Imagem P&B de Alto Contraste</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Seção de Chamada para Ação (CTA) de Destaque -->
+    <section id="cta-destaque" class="faixa-preta reveal">
+        <div class="container-padrao alinhamento-central reveal">
+            <h2 class="titulo-cta reveal">Encontre Seu Novo Essencial.</h2>
+            <p class="subtitulo-cta reveal">Explore nosso catálogo completo e descubra a peça que faltava no seu guarda-roupa.</p>
+            <a href="#" class="botao-cta reveal">Explorar Catálogo Completo</a>
+        </div>
+    </section>
+
+    <!-- 5. Seção de Newsletter/Formulário de Contato -->
+    <section id="newsletter" class="section-padrao fundo-cinza-claro reveal">
+        <div class="container-padrao alinhamento-central reveal">
+            <h2 class="titulo-secao reveal">Receba Novidades.</h2>
+            <p class="texto-newsletter reveal">Assine nossa newsletter e tenha acesso antecipado a novas coleções, descontos exclusivos e conteúdos de estilo.</p>
+            <form class="formulario-newsletter reveal">
+                <input type="email" placeholder="Seu melhor e-mail" required class="input-email">
+                <button type="submit" class="botao-assinar">Assinar</button>
+            </form>
+        </div>
+    </section>
+
+        <script>
+            const reveals = document.querySelectorAll('.reveal');
+        
+          function revealOnScroll() {
+            const windowHeight = window.innerHeight;
+            const revealPoint = 150; // quanto antes do elemento aparecer
+            reveals.forEach(reveal => {
+              const revealTop = reveal.getBoundingClientRect().top;
+              if (revealTop < windowHeight - revealPoint) {
+                reveal.classList.add('active');
+              } else {
+                reveal.classList.remove('active');
+              }
+            });
+          }
+        
+          window.addEventListener('scroll', revealOnScroll);
+          revealOnScroll();
+        
+        </script>
+     <%- include ('../includes/footer.ejs') %>

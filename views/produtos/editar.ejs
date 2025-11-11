@@ -1,0 +1,30 @@
+<%- include('../includes/header.ejs', {titulo: 'Alterando Produto'}) %>
+
+    <main>
+        <h2>Atualizando dados do produto</h2>
+
+        <form action="/produtos/editar/<%= produtos.id_produto %>" method="POST" class="form">
+            <div class="form-group">
+                <label>Nome do produto</label>
+                <input type="text" name="nome_produto" value="<%= produtos.nome_produto %>" required>
+            </div>
+            <div class="form-group">
+            <label>Categorias:</label>
+            <select name="id_categoria" required>
+                <option value="">Selecione a categoria</option>
+                <!-- Gerando a lista de professor cadatrado-->
+                <% for (let categorias of dadoscategorias) { %>
+                <option value="<%= categorias.id_categoria %>"
+                    <% if(produtos.id_categoria == categorias.id_categoria) {%>
+                        selected
+                    <% } %>        
+                ><%= categorias.nome_categoria %> </option>
+            <% } %>
+            </select>
+        </div>
+            <button type="submit" class="btn btn-principal">Salvar</button>
+            <a href="/produtos/listar" class="btn btn-secundario">Cancelar</a>
+        </form>
+    </main>
+
+<%- include('../includes/footer.ejs') %>

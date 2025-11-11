@@ -1,0 +1,49 @@
+<%- include('../includes/header.ejs', { titulo: 'Cadastro de Produto' }) %>
+
+<main>
+    <h2>Cadastro de Produto</h2>
+
+    <form action="/produtos/novo" method="POST" class="form">
+        <div class="form-group">
+            <label>Nome do produto:</label>
+            <input type="text" name="nome_produto" required>
+        </div>
+        <div class="form-group">
+            <label>Quantidade do produto:</label>
+            <input type="number" name="quantidade_produto" required>
+        </div>
+        <div class="form-group">
+            <label>Limite do produto:</label>
+            <input type="number" name="limite_minimo" required>
+        </div>
+        <div class="form-group">
+            <label>descrição do produto:</label>
+            <input type="text" name="descricao" required>
+        </div>
+        <div class="form-group">
+            <label>Imagem do produto:</label>
+            <input type="text" name="imagem_produto" required>
+        </div>
+        <div class="form-group">
+            <label>Valor do produto:</label>
+            <input type="text" name="valor" required>
+        </div>
+        <div class="form-group">
+            <label>Data do produto:</label>
+            <input type="text" name="data_produto" required>
+        </div>
+        <div class="form-group">
+            <label>Categoria:</label>
+            <select name="id_categoria" required>
+                <option value="">Selecione a categoria</option>
+                <!-- Gerando a lista de professor cadatrado-->
+                <% for (let produtos of dadosProdutos) { %>
+                <option value="<%= produtos.id_categoria %>"><%= produtos.nome_categoria %> </option>
+            <% } %>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-principal">Adicionar</button>
+        <a href="/produtos/listar" class="btn btn-secundario">Cancelar</a>
+    </form>
+</main>
+<%- include('../includes/footer.ejs') %>

@@ -1,0 +1,60 @@
+<%- include ('../includes/header.ejs', {titulo: 'painel administrativo' }) %>
+
+    <main>
+        <h2>Lista de Produtos</h2>
+        <a href="/produtos/novo" class="btn btn-principal">Adicionar Produto</a>
+
+        <section class="lista-cards">
+            <% for (let produtos of dadosProdutos ) {%>
+                <div class="card-aluno">
+                    <img src="<%= produtos.imagem_produto %>">
+                    <h2>
+                        <%= produtos.nome_produto %>
+                    </h2>
+                    <p>
+                        <%= produtos.nome_categoria %>
+                    </p>
+                    <a href="/produtos/editar/<%= produtos.id_produto %>" class="btn btn-edit">Editar</a>
+                    <form action="/produtos/excluir/<%= produtos.id_produto %>" method="post">
+                        <button type="submit" class="btn btn-delete">Excluir</button>
+                </div>
+                <% } %>
+
+        </section>
+
+        <table class="dados-table">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let produtos of dadosProdutos) { %>
+                    <tr>
+                        <td> <img src="<%= produtos.imagem_produto %>" width="50"></td>
+                        <td>
+                            <%= produtos.nome_produto %>
+                        </td>
+                        <td>
+                            <%= produtos.nome_categoria %>
+                        </td>
+                        <td>
+                            <%= produtos.ativo %>
+                        </td>
+                        <td class="acoes">
+                            <a href="/produtos/editar/<%= produtos.id_produto %>" class="btn btn-edit">Editar</a>
+                            <form action="/produtos/excluir/<%= produtos.id_produto %>" method="POST">
+                                <button type="submit" class="btn btn-delete">excluir</button>
+
+                            </form>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </main>
+
+    <%- include ('../includes/footer.ejs') %>
