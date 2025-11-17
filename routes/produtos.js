@@ -61,9 +61,15 @@ rotas.post('/excluir/:id', async (req, res) => {
 });
 
 rotas.get('/editar/:id', async (req, res) => {
-    const { id } = req.params.id;
+    const id = req.params.id;
     const resultado = await BD.query('SELECT * FROM produtos WHERE id_produto = $1', [id]);
-    res.render('produtos/editar.ejs', { produto: resultado.rows[0] });
+    const resultadoCategorias = await BD.query(
+        'SELECT * FROM categorias WHERE ativo = true ORDER BY nome_categoria'
+    );
+    res.render('produtos/editar.ejs', {
+        produto: resultado.rows[0],
+        dadoscategorias: resultadoCategorias.rows
+    });
 });
 
 rotas.post('/editar/:id', async (req, res) => {
@@ -78,18 +84,19 @@ rotas.post('/editar/:id', async (req, res) => {
     const valor = req.body.valor;
     const id_categoria = req.body.id_categoria;
     //const {nome_professor, telefone, formacao} = req.body;
-    await BD.query(`UPDATE produtos SET
+    await BD.query(
+            `UPDATE produtos SET
                 nome_produto = $1,
                 quantidade_produto = $2,
-                imagem_produto = $3 
+                imagem_produto = $3,
                 limite_minimo = $4,
                 descricao = $5,
                 data_produto = $6,
                 valor = $7,
-                id_categoria = $8 WHERE
-                id_produto = $9`
-    [nome_produto, quantidade_produto, imagem_produto, limite_minimo, descricao, data_produto, valor, id_categoria, id]);
-
+                id_categoria = $8
+             WHERE id_produto = $9`,
+            [nome_produto, quantidade_produto, imagem_produto, limite_minimo, descricao, data_produto, valor, id_categoria, id]
+        );
     res.redirect('/produtos/listar')
 });
 

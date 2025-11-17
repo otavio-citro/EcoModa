@@ -1,8 +1,110 @@
-<%- include ('../includes/header.ejs', {titulo: 'painel administrativo'}) %>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoModa - Painel Administrativo</title>
+    <link rel="stylesheet" href="../css/adm.css">
+</head>
+<body>
+    
+  
 
-<main>
-    <h2>painel administrativo</h2>
-</main>
+    <div class="main-wrapper">
+        <aside class="sidebar">
+            <h2>Painel Administrativo</h2>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="../admin/dashboard" class="sidebar-link active" data-content="dashboard-content">Dashboard</a></li>
+                    <li><a href="../produtos/listar" class="sidebar-link" data-content="produtos-content">Produtos</a></li>
+                    <li><a href="../categorias/listar" class="sidebar-link" data-content="categorias-content">Categorias</a></li>
+                    <li><a href="../usuarios/listar" class="sidebar-link" data-content="relatorios-content">Usuarios</a></li>
+                    <li><a href="#" class="sidebar-link" data-content="configuracoes-content">Configurações</a></li>
+                </ul>
+            </nav>
+        </aside>
 
+        <main class="content">
+            
+            <section id="dashboard-content" class="content-section active-content">
+                <h2 class="page-title">Dashboard Overview</h2>
 
-<%- include ('../includes/footer.ejs') %>
+                <section class="overview-cards">
+                    <div class="card">
+                        <h3>Total de Produtos</h3>
+                        <p class="metric">TOTAL PRODUTOS</p>
+                    </div>
+                    <div class="card">
+                        <h3>Total de Usuários</h3>
+                        <p class="metric">TOTAL USUARIOS</p>
+                    </div>
+                    <div class="card">
+                        <h3>Pedidos Pendentes</h3>
+                        <p class="metric">PEDIDOS PENDENTES</p>
+                    </div>
+                    <div class="card">
+                        <h3>Faturamento Total</h3>
+                        <p class="metric">FATURAMENTO TOTAL</p>
+                    </div>
+                </section>
+
+                <section class="detailed-content">
+                    <h3>Produtos Mais Vendidos</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Produto</th>
+                                    <th>Categoria</th>
+                                    <th>Vendas</th>
+                                    <th>Estoque</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+            
+            <section id="produtos-content" class="content-section">
+                <h2 class="page-title">Gerenciar Produtos 📦</h2>
+                <p>Aqui você pode listar, adicionar, editar ou remover produtos.</p>
+            </section>
+            
+            <section id="categorias-content" class="content-section">
+                <h2 class="page-title">Gerenciar Categorias 🏷️</h2>
+                <p>Gerencie as categorias de produtos da loja.</p>
+            </section>
+            
+            <section id="pedidos-content" class="content-section">
+                <h2 class="page-title">Lista de Pedidos 🛒</h2>
+                <p>Acompanhe todos os pedidos, pendentes e concluídos.</p>
+            </section>
+
+            <section id="clientes-content" class="content-section">
+                <h2 class="page-title">Clientes Registrados 👤</h2>
+                <p>Visualize e gerencie a lista de clientes.</p>
+            </section>
+
+            <section id="relatorios-content" class="content-section">
+                <h2 class="page-title">Relatórios e Estatísticas 📈</h2>
+                <p>Acesse relatórios de vendas, estoque e desempenho.</p>
+            </section>
+
+            <section id="configuracoes-content" class="content-section">
+                <h2 class="page-title">Configurações Gerais ⚙️</h2>
+                <p>Ajuste as configurações do sistema administrativo.</p>
+            </section>
+
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+
+    <footer class="footer">
+        </footer>
+</body>
+</html>

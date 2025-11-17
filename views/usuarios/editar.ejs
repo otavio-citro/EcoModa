@@ -1,0 +1,32 @@
+<%- include('../includes/header.ejs', {titulo: 'Alterando o Usuario'}) %>
+
+    <main>
+        <h2>Atualizando o Usuario</h2>
+
+        <form action="/usuarios/editar/<%= usuario.id_usuario %>" method="POST" class="form">
+            <div class="form-group">
+                <label>Nome do Usuario</label>
+                <input type="text" name="nome" value="<%= usuario.nome %>" required>
+            </div>
+            <div class="form-group">
+                <label>Email do Usuario</label>
+                <input type="email" name="email" value="<%= usuario.email %>" required>
+            </div>
+            <div class="form-group">
+                <label>Número do Usuario</label>
+                <input type="text" name="numero" value="<%= usuario.numero %>" required>
+            </div>
+            <div class="form-group">
+                <label>Cpf do Usuario</label>
+                <input type="text" name="cpf" value="<%= usuario.cpf %>" required>
+            </div>
+            <div class="form-group">
+                <label>Senha do Usuario</label>
+                <input type="text" name="senha" value="<%= usuario.senha %>" required>
+            </div>
+            <button type="submit" class="btn btn-principal">Salvar</button>
+            <a href="/usuarios/listar" class="btn btn-secundario">Cancelar</a>
+        </form>
+    </main>
+
+<%- include('../includes/footer.ejs') %>

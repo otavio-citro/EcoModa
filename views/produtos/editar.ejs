@@ -3,10 +3,34 @@
     <main>
         <h2>Atualizando dados do produto</h2>
 
-        <form action="/produtos/editar/<%= produtos.id_produto %>" method="POST" class="form">
+        <form action="/produtos/editar/<%= produto.id_produto %>" method="POST" class="form">
             <div class="form-group">
                 <label>Nome do produto</label>
-                <input type="text" name="nome_produto" value="<%= produtos.nome_produto %>" required>
+                <input type="text" name="nome_produto" value="<%= produto.nome_produto %>" required>
+            </div>
+            <div class="form-group">
+                <label>Quantidade do produto</label>
+                <input type="number" name="quantidade_produto" value="<%= produto.quantidade_produto %>" required>
+            </div>
+            <div class="form-group">
+                <label>Limite do produto</label>
+                <input type="number" name="limite_minimo" value="<%= produto.limite_minimo %>" required>
+            </div>
+            <div class="form-group">
+                <label>Descrição do produto</label>
+                <input type="text" name="descricao" value="<%= produto.descricao %>" required>
+            </div>
+            <div class="form-group">
+                <label>Valor do produto</label>
+                <input type="text" name="valor" value="<%= produto.valor %>" required>
+            </div>
+            <div class="form-group">
+                <label>Data do produto</label>
+                <input type="text" name="data_produto" value="<%= produto.data_produto %>" required>
+            </div>
+            <div class="form-group">
+                <label>Imagem do produto</label>
+                <input type="text" name="imagem_produto" value="<%= produto.imagem_produto %>" required>
             </div>
             <div class="form-group">
             <label>Categorias:</label>
@@ -15,7 +39,7 @@
                 <!-- Gerando a lista de professor cadatrado-->
                 <% for (let categorias of dadoscategorias) { %>
                 <option value="<%= categorias.id_categoria %>"
-                    <% if(produtos.id_categoria == categorias.id_categoria) {%>
+                    <% if(produto.id_categoria == categorias.id_categoria) {%>
                         selected
                     <% } %>        
                 ><%= categorias.nome_categoria %> </option>

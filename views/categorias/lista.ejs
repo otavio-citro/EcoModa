@@ -1,10 +1,22 @@
-<%- include ('../includes/header.ejs', {titulo: 'painel administrativo'}) %>
+<%- include ('../includes/header.ejs', {titulo: 'painel administrativo' }) %>
 
- <main>
+    <main>
         <h2>Lista de Categorias</h2>
         <a href="/categorias/novo" class="btn btn-principal">Adicionar categoria</a>
 
-        <table class="dados-table">
+        <!-- criando form de pesquisa -->
+        <form action="/categorias/listar" method="get" class="form form-cunsulta">
+            <input type="text" name="busca" placeholder="Buscar por categoria">
+            <select name="ordem">
+                <option value="nome_categoria">ordenar A-Z</option>
+                <option value="nome_categoria desc">ordenar Z-A</option>
+                <option value="nome_categoria infantil">categorias geral</option>
+                <!-- <option value="formacao">ordenar por formação</option> -->
+            </select>
+            <button type="submit" class="btn btn-principal">Buscar</button>
+        </form>
+
+        <table class="dado-table">
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -13,19 +25,20 @@
             </thead>
             <tbody>
                 <% for (let categorias of dadoscategorias) { %>
-                <tr>
-                    <td><%= categorias.nome_categoria %></td>
-                    <td><%= categorias.ativo %></td>
-                    <td class="acoes">
-                        <a href="/categorias/editar/<%= categorias.id_categoria %>" class="btn btn-edit">Editar</a>
-                        <form action="/categorias/excluir/<%= categorias.id_categoria %>" method="post">
-                            <button type="submit" class="btn btn-delete">Excluir</button>
-                        </form>
-                    </td>
-                </tr>
-                <% } %>
+                    <tr>
+                        <td>
+                            <%= categorias.nome_categoria %>
+                        </td>
+                        <td class="acoes">
+                            <a href="/categorias/editar/<%= categorias.id_categoria %>" class="btn btn-edit">Editar</a>
+                            <form action="/categorias/excluir/<%= categorias.id_categoria %>" method="post">
+                                <button type="submit" class="btn btn-delete">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% } %>
             </tbody>
         </table>
     </main>
 
-<%- include ('../includes/footer.ejs') %>
+    <%- include ('../includes/footer.ejs') %>

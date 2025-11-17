@@ -1,16 +1,40 @@
-<%- include ('../includes/header.ejs', {titulo: 'painel administrativo' }) %>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Moda</title>
+    <link rel="stylesheet" href="../css/adm.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    
     <main>
-        <h2>Lista de Produtos</h2>
-        <a href="/produtos/novo" class="btn btn-principal">Adicionar Produto</a>
+ <div class="main-wrapper">
+        <aside class="sidebar">
+            <h2>Lista de Produtos</h2>
+            <nav class="sidebar-nav">
+                <ul>
+                    <a href="/produtos/novo" class="btn btn-principal">Adicionar Produto</a>
+                    <li><a href="../admin/dashboard" class="sidebar-link" data-content="dashboard-content">Dashboard</a></li>
+                    <li><a href="../produtos/listar" class="sidebar-link active" data-content="produtos-content">Produtos</a></li>
+                    <li><a href="../categorias/listar" class="sidebar-link" data-content="categorias-content">Categorias</a></li>
+                    <li><a href="../usuarios/listar" class="sidebar-link" data-content="relatorios-content">Usuarios</a></li>
+                    <li><a href="#" class="sidebar-link" data-content="configuracoes-content">Configurações</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-        <section class="lista-cards">
+         <section class="lista-cards">
             <% for (let produtos of dadosProdutos ) {%>
                 <div class="card-aluno">
                     <img src="<%= produtos.imagem_produto %>">
                     <h2>
                         <%= produtos.nome_produto %>
                     </h2>
+                    <h3>
+                        <%= produtos.valor %>
+                    </h3>
                     <p>
                         <%= produtos.nome_categoria %>
                     </p>
@@ -21,8 +45,10 @@
                 <% } %>
 
         </section>
+    </div>
+       
 
-        <table class="dados-table">
+        <!-- <table class="dado-table">
             <thead>
                 <tr>
                     <th>Foto</th>
@@ -41,9 +67,6 @@
                         <td>
                             <%= produtos.nome_categoria %>
                         </td>
-                        <td>
-                            <%= produtos.ativo %>
-                        </td>
                         <td class="acoes">
                             <a href="/produtos/editar/<%= produtos.id_produto %>" class="btn btn-edit">Editar</a>
                             <form action="/produtos/excluir/<%= produtos.id_produto %>" method="POST">
@@ -54,7 +77,7 @@
                     </tr>
                     <% } %>
             </tbody>
-        </table>
+        </table> -->
     </main>
 
     <%- include ('../includes/footer.ejs') %>
