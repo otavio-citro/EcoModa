@@ -6,41 +6,10 @@ rotas.get('/listar', async (req, res) => {
     const busca = req.query.busca || '';
     const ordem = req.query.ordem || 'nome_categoria';
 
-    // whitelist de ordenação segura
-    const orderBy = {
-        'nome_categoria': 'nome_categoria ASC',
-        'nome_categoria desc': 'nome_categoria DESC',
-    }[ordem] || 'nome_categoria ASC';
-
-    let sql;
-    let params = [];
-
-
-
-    if (busca) {
-        sql = `
-            SELECT * FROM categorias 
-            WHERE ativo = true 
-              AND nome_categoria ILIKE $1
-            ORDER BY ${orderBy}
-        `;
-        params = [`%${busca}%`];
-    } else {
-        sql = `
-            SELECT * FROM categorias 
-            ORDER BY ${orderBy}
-        `;
-    }
-
-    const dados = await BD.query(sql, params);
-    res.render('categorias/lista.ejs', { dadoscategorias: dados.rows });
-});
-
-rotas.get('/listar', async (req, res) => {
     const dados = await BD.query(`SELECT *
         FROM categorias
-        WHERE ativo = true
-        ORDER BY nome_categoria;`);
+        WHERE categorias.ativo = true and categorias.nome_categoria ilike $1
+        ORDER BY ${ordem};`, [`%${busca}%`]);
     console.log(dados.rows);
     res.render('categorias/lista.ejs', { dadoscategorias: dados.rows })
 

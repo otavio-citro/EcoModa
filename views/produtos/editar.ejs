@@ -25,10 +25,6 @@
                 <input type="text" name="valor" value="<%= produto.valor %>" required>
             </div>
             <div class="form-group">
-                <label>Data do produto</label>
-                <input type="text" name="data_produto" value="<%= produto.data_produto %>" required>
-            </div>
-            <div class="form-group">
                 <label>Imagem do produto</label>
                 <input type="text" name="imagem_produto" value="<%= produto.imagem_produto %>" required>
             </div>
@@ -46,9 +42,8 @@
             <% } %>
             </select>
         </div>
-            <button type="submit" class="btn btn-principal">Salvar</button>
-            <a href="/produtos/listar" class="btn btn-secundario">Cancelar</a>
+            <button type="submit" class="btn btn-edit">Salvar</button>
+            <a href="/produtos/listar" class="btn btn-delete">Cancelar</a>
         </form>
     </main>
 
-<%- include('../includes/footer.ejs') %>

@@ -1,10 +1,42 @@
-<%- include ('../includes/header.ejs', {titulo: 'painel usuario'}) %>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/adm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
-<main>
-    <h2>Usuarios</h2>
-    <a href="/usuarios/novo" class="btn btn-principal">Adicionar Usuarios</a>
 
-        <table class="dado-table">
+<div class="main-wrapper">
+        <aside class="sidebar">
+            
+          <h2><a href="/landing" class="sidebar-link" data-content="configuracoes-content"><i class="fa-solid fa-house"></i></a>
+                Lista de Usuarios</h2> 
+            <nav class="sidebar-nav">
+                <ul>
+                    <a href="/categorias/novo" class="btn btn-principal">Adicionar categoria</a>
+                    <li><a href="../admin/dashboard" class="sidebar-link" data-content="dashboard-content">Dashboard</a></li>
+                    <li><a href="../produtos/listar" class="sidebar-link" data-content="produtos-content">Produtos</a></li>
+                    <li><a href="../categorias/listar" class="sidebar-link " data-content="categorias-content">Categorias</a></li>
+                    <li><a href="../usuarios/listar" class="sidebar-link active" data-content="relatorios-content">Usuarios</a></li>
+                    <li><a href="../admin/logout" class="sidebar-link" data-content="configuracoes-content">Sair</a></li>
+                    
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+             <h2>Lista de Categorias</h2>
+        
+
+        <!-- criando form de pesquisa -->
+        <form action="/categorias/listar" method="get" class="form form-cunsulta">
+            <input type="text" name="busca" placeholder="Buscar por categoria">
+            <select name="ordem">
+                <option value="nome_categoria">ordenar A-Z</option>
+                <option value="nome_categoria desc">ordenar Z-A</option>
+                <option value="nome_categoria ">categorias geral</option>
+                <!-- <option value="formacao">ordenar por formação</option> -->
+            </select>
+            <button type="submit" class="btn btn-principal">Buscar</button>
+        </form>
+ <table class="dado-table">
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -29,7 +61,10 @@
                 <% } %>
             </tbody>
         </table>
-</main>
+        
+    </main>
+    </div>
+
 
 
 <%- include ('../includes/footer.ejs') %>

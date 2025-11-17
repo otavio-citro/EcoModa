@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoModa - Painel Administrativo</title>
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/adm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
 </head>
 <body>
     
@@ -12,14 +15,15 @@
 
     <div class="main-wrapper">
         <aside class="sidebar">
-            <h2>Painel Administrativo</h2>
-            <nav class="sidebar-nav">
+<h2><a href="/landing" class="sidebar-link" data-content="configuracoes-content"><i class="fa-solid fa-house"></i></a>
+                Lista de Usuarios</h2>             <nav class="sidebar-nav">
                 <ul>
                     <li><a href="../admin/dashboard" class="sidebar-link active" data-content="dashboard-content">Dashboard</a></li>
                     <li><a href="../produtos/listar" class="sidebar-link" data-content="produtos-content">Produtos</a></li>
                     <li><a href="../categorias/listar" class="sidebar-link" data-content="categorias-content">Categorias</a></li>
                     <li><a href="../usuarios/listar" class="sidebar-link" data-content="relatorios-content">Usuarios</a></li>
-                    <li><a href="#" class="sidebar-link" data-content="configuracoes-content">Configurações</a></li>
+                    <li><a href="../admin/logout" class="sidebar-link" data-content="configuracoes-content">Sair</a></li>
+                    
                 </ul>
             </nav>
         </aside>
@@ -104,7 +108,4 @@
     
     <script src="script.js"></script>
 
-    <footer class="footer">
-        </footer>
-</body>
-</html>
+      <%- include ('../includes/footer.ejs') %>

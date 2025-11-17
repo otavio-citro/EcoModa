@@ -2,12 +2,49 @@ const express = require('express');
 const rotas = express.Router();
 const BD = require('../db')
 
+// rotas.get('/listar', async (req, res) => {
+//     const busca = req.query.busca || '';
+//     const ordem = req.query.ordem || 'nome_produto';
+
+//     // whitelist de ordenação segura
+//     const orderBy = {
+//         'nome_produto': 'nome_produto ASC',
+//         'nome_produto desc': 'nome_produto DESC',
+//     }[ordem] || 'nome_produto ASC';
+
+//     let sql;
+//     let params = [];
+
+
+
+//     if (busca) {
+//         sql = `
+//             SELECT * FROM produtos 
+//             WHERE ativo = true 
+//               AND nome_produto ILIKE $1
+//             ORDER BY ${orderBy}
+//         `;
+//         params = [`%${busca}%`];
+//     } else {
+//         sql = `
+//             SELECT * FROM produtos 
+//             ORDER BY ${orderBy}
+//         `;
+//     }
+
+//     const dados = await BD.query(sql, params);
+//     res.render('produtos/lista.ejs', { dadosProdutos: dados.rows });
+// });
+
 rotas.get('/listar', async (req, res) => {
+    const busca = req.query.busca || '';
+    const ordem = req.query.ordem || 'nome_produto';
+
     const dados = await BD.query(`SELECT *
         FROM produtos
         LEFT JOIN categorias on produtos.id_categoria = categorias.id_categoria
-        WHERE produtos.ativo = true
-        ORDER BY produtos.nome_produto;`);
+        WHERE produtos.ativo = true and produtos.nome_produto ilike $1
+        ORDER BY ${ordem};`, [`%${busca}%`]);
     console.log(dados.rows);
     res.render('produtos/lista.ejs', { dadosProdutos: dados.rows })
 
@@ -30,15 +67,14 @@ rotas.post('/novo', async (req, res) => {
     const imagem_produto = req.body.imagem_produto;
     const limite_minimo = req.body.limite_minimo;
     const descricao = req.body.descricao;
-    const data_produto = req.body.data_produto;
     const valor = req.body.valor;
     const id_categoria = req.body.id_categoria;
     //const {} = req.body;
 
-    const sql = `INSERT INTO produtos (nome_produto, quantidade_produto, imagem_produto, limite_minimo, descricao, data_produto, valor, id_categoria )
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`;
+    const sql = `INSERT INTO produtos (nome_produto, quantidade_produto, imagem_produto, limite_minimo, descricao, valor, id_categoria )
+                    VALUES ($1, $2, $3, $4, $5, $6, $7)`;
 
-    await BD.query(sql, [nome_produto, quantidade_produto, imagem_produto, limite_minimo, descricao, data_produto, valor, id_categoria]);
+    await BD.query(sql, [nome_produto, quantidade_produto, imagem_produto, limite_minimo, descricao, valor, id_categoria]);
 
     res.redirect('/produtos/listar')
 });
@@ -91,11 +127,11 @@ rotas.post('/editar/:id', async (req, res) => {
                 imagem_produto = $3,
                 limite_minimo = $4,
                 descricao = $5,
-                data_produto = $6,
-                valor = $7,
-                id_categoria = $8
+                valor = $6,
+                id_categoria = $7,
+                data_produto = $8
              WHERE id_produto = $9`,
-            [nome_produto, quantidade_produto, imagem_produto, limite_minimo, descricao, data_produto, valor, id_categoria, id]
+            [nome_produto, quantidade_produto, imagem_produto, limite_minimo, descricao, valor, id_categoria, data_produto, id]
         );
     res.redirect('/produtos/listar')
 });

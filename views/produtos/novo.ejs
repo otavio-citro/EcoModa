@@ -1,4 +1,4 @@
-<%- include('../includes/header.ejs', { titulo: 'Cadastro de Produto' }) %>
+ <link rel="stylesheet" href="/css/style.css"> 
 
 <main>
     <h2>Criar novo Produto</h2>
@@ -29,10 +29,6 @@
             <input type="text" name="valor" required>
         </div>
         <div class="form-group">
-            <label>Data do produto:</label>
-            <input type="text" name="data_produto" required>
-        </div>
-        <div class="form-group">
             <label>Categoria:</label>
             <select name="id_categoria" required>
                 <option value="">Selecione a categoria</option>
@@ -42,8 +38,8 @@
             <% } %>
             </select>
         </div>
-        <button type="submit" class="btn btn-principal">Adicionar</button>
-        <a href="/produtos/listar" class="btn btn-secundario">Cancelar</a>
+        <button type="submit" class="btn btn-edit">Adicionar</button>
+        <a href="/produtos/listar" class="btn btn-delete">Cancelar</a>
     </form>
 </main>
 <%- include('../includes/footer.ejs') %>

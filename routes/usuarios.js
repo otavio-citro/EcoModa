@@ -2,13 +2,18 @@ const express = require('express');
 const rotas = express.Router();
 const BD = require('../db')
 
-rotas.get('/listar', async (req, res) => {
+
+
+ rotas.get('/listar', async (req, res) => {
+     const busca = req.query.busca || '';
+    const ordem = req.query.ordem || 'nome';
+
     const dados = await BD.query(`SELECT *
         FROM usuarios
-        WHERE ativo = true
-        ORDER BY nome;`);
-    console.log(dados.rows);
-    res.render('usuarios/lista.ejs', { dadosusuarios: dados.rows })
+        WHERE usuarios.ativo = true and usuarios.nome ilike $1
+        ORDER BY ${ordem};`, [`%${busca}%`]);
+     console.log(dados.rows);
+     res.render('usuarios/lista.ejs', { dadosusuarios: dados.rows })
 
 });
 

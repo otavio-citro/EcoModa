@@ -4,28 +4,31 @@
     <meta charset="UTF-R">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" class="seta">
+        <link rel="stylesheet" href="../css/style.css">
+
     <title>Tela de Login</title>
 </head>
 <body class="bg-gray-100"> 
     <div class="max-w-md mx-auto mt-16 p-8 bg-white rounded-lg shadow-xl">
-        
-        <h1 class="text-3xl font-bold text-center text-blue-600 mb-6">Login</h1>
+        <a href="/landing"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1 class="text-3xl font-bold text-center text-green-600 mb-6">Login</h1>
 
         <form action="/admin/login" method="POST">
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2">Usuário</label>
                 <input type="email" name="email" placeholder="Digite seu email" required
-                       class="shadow-sm border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                       class="shadow-sm border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500">
             </div>
 
             <div class="mb-6"> 
                 <label  class="block text-gray-700 text-sm font-bold mb-2">Senha</label>
                 <input type="password" name="senha" placeholder="Digite sua senha" required
-                       class="shadow-sm border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+                       class="shadow-sm border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500">
             </div>
             
             <button type="submit" 
-                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline">
+                    class="bg-green-600  hover:bg-green-700 ease-linear text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline focus:ring-green-500">
                 Entrar
             </button>
         </form>

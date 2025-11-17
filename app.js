@@ -53,7 +53,11 @@ app.use('/usuarios', verificarAutenticacao, usuariosRotas)
 const categoriasRotas = require('./routes/categorias');
 app.use('/categorias', verificarAutenticacao, categoriasRotas)
 
+app.get('/landing', (req, res) => {
+    res.render('landing/index');
+});
+
 const porta = 3000;
 app.listen(porta, () => {
-    console.log(`servidor rodando em http://26.244.106.237:${porta}`)
+    console.log(`servidor rodando em http://192.168.0.170:${porta}`)
 });

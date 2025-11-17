@@ -1,52 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eco Moda</title>
     <link rel="stylesheet" href="../css/adm.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
 </head>
+
 <body>
+    <div class="main-wrapper">
     
-    <main>
- <div class="main-wrapper">
-        <aside class="sidebar">
-            <h2>Lista de Produtos</h2>
-            <nav class="sidebar-nav">
-                <ul>
-                    <a href="/produtos/novo" class="btn btn-principal">Adicionar Produto</a>
-                    <li><a href="../admin/dashboard" class="sidebar-link" data-content="dashboard-content">Dashboard</a></li>
-                    <li><a href="../produtos/listar" class="sidebar-link active" data-content="produtos-content">Produtos</a></li>
-                    <li><a href="../categorias/listar" class="sidebar-link" data-content="categorias-content">Categorias</a></li>
-                    <li><a href="../usuarios/listar" class="sidebar-link" data-content="relatorios-content">Usuarios</a></li>
-                    <li><a href="#" class="sidebar-link" data-content="configuracoes-content">Configurações</a></li>
-                </ul>
-            </nav>
-        </aside>
+    <aside class="sidebar">
 
-         <section class="lista-cards">
-            <% for (let produtos of dadosProdutos ) {%>
-                <div class="card-aluno">
-                    <img src="<%= produtos.imagem_produto %>">
-                    <h2>
-                        <%= produtos.nome_produto %>
-                    </h2>
-                    <h3>
-                        <%= produtos.valor %>
-                    </h3>
-                    <p>
-                        <%= produtos.nome_categoria %>
-                    </p>
-                    <a href="/produtos/editar/<%= produtos.id_produto %>" class="btn btn-edit">Editar</a>
-                    <form action="/produtos/excluir/<%= produtos.id_produto %>" method="post">
-                        <button type="submit" class="btn btn-delete">Excluir</button>
-                </div>
-                <% } %>
+        <!-- criando form de pesquisa -->
 
-        </section>
-    </div>
-       
+
+<h2><a href="/landing" class="sidebar-link" data-content="configuracoes-content"><i class="fa-solid fa-house"></i></a>
+                Lista de Usuarios</h2>         <nav class="sidebar-nav">
+            <ul>
+                <a href="/produtos/novo" class="btn btn-principal">Adicionar Produto</a>
+                <li><a href="../admin/dashboard" class="sidebar-link" data-content="dashboard-content">Dashboard</a>
+                </li>
+                <li><a href="../produtos/listar" class="sidebar-link active"
+                        data-content="produtos-content">Produtos</a></li>
+                <li><a href="../categorias/listar" class="sidebar-link" data-content="categorias-content">Categorias</a>
+                </li>
+                <li><a href="../usuarios/listar" class="sidebar-link" data-content="relatorios-content">Usuarios</a>
+                </li>
+                <li><a href="../admin/logout" class="sidebar-link" data-content="configuracoes-content">Sair</a>
+                </li>
+               
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <div >
+            <form action="/produtos/listar" method="get" class="form form-cunsulta">
+        <input type="text" name="busca" placeholder="Buscar por produto">
+        <select name="ordem">
+            <option value="nome_produto">ordenar A-Z</option>
+            <option value="nome_produto desc">ordenar Z-A</option>
+            <option value="nome_produto">produtos geral</option>
+            <!-- <option value="formacao">ordenar por formação</option> -->
+        </select>
+        <button type="submit" class="btn btn-principal">Buscar</button>
+    </form>
+
+            <section class="lista-cards">
+                <% for (let produtos of dadosProdutos ) {%>
+                    <div class="card-aluno">
+                        <img src="<%= produtos.imagem_produto %>">
+                        <h2>
+                            <%= produtos.nome_produto %>
+                        </h2>
+                        <h3>
+                           R$ <%= produtos.valor %>
+                        </h3>
+                        <p>
+                            <%= produtos.nome_categoria %>
+                        </p>
+                        <a href="/produtos/editar/<%= produtos.id_produto %>" class="btn btn-edit">Editar</a>
+                        <form action="/produtos/excluir/<%= produtos.id_produto %>" method="post">
+                            <button type="submit" class="btn btn-delete">Excluir</button>
+                    </div>
+                    <% } %>
+
+            </section>
+        </div>
+
 
         <!-- <table class="dado-table">
             <thead>
@@ -79,5 +105,6 @@
             </tbody>
         </table> -->
     </main>
+    </div>  
 
     <%- include ('../includes/footer.ejs') %>
