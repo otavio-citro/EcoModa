@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
 
     <title>Eco Moda</title>
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
 </head>
 
 <body id="top">
+   
+
     <header class="header">
         <nav class="nav">
             <a href="#top">Inicio</a>
@@ -199,7 +201,7 @@
                                     <img src="../img/colecoes.png"
                                         alt="" class="product-image-v2">
                                 </div>
-                                <p class="product-description-v2">Coleções </p>
+                                <h2 class="product-description-v2">Coleções </h2>
                             </a>
                         </div>
 
@@ -210,7 +212,7 @@
                                     <img src="https://www.pronovias.com/media/catalog/product/s/p/sparkle_2418_b.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=747&width=560&canvas=560:747"
                                         alt="" class="product-image-v2">
                                 </div>
-                                <p class="product-description-v2">Roupas de Gala</p>
+                                <h2 class="product-description-v2">Roupas de Gala</h2>
                             </a>
                         </div>
 
@@ -221,7 +223,7 @@
                                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo1v0NmPXT24-hOHL5DnI8QUYIH5GfgGMD5Q&s"
                                         alt="" class="product-image-v2">
                                 </div>
-                                <p class="product-description-v2">Tenis</p>
+                                <h2 class="product-description-v2">Tenis</h2>
                             </a>
                         </div>
                     </div>
@@ -230,12 +232,12 @@
                     <div class="product-slide-v2">
                         <!-- Produto 7: Calça Jeans -->
                         <div class="product-card-v2">
-                            <a href="#" title="Ver Calça Jeans">
+                            <a href="#" title="Ver Cal  ça Jeans">
                                 <div class="product-image-container-v2">
                                     <img src="https://www.estadao.com.br/recomenda/wp-content/uploads/2023/07/630114c42324049421ed427c6d2d61b8.jpeg.webp"
                                         alt="" class="product-image-v2">
                                 </div>
-                                <p class="product-description-v2">Perfumes</p>
+                                <h2 class="product-description-v2">Perfumes</h2>
                             </a>
                         </div>
 
@@ -246,7 +248,7 @@
                                     <img src="https://cdn.awsli.com.br/600x450/1293/1293420/produto/291566602/236aff7088a214ac2c65567cb0445a4b-egeoek0hmo.jpg"
                                         alt="" class="product-image-v2">
                                 </div>
-                                <p class="product-description-v2">Relogios</p>
+                                <h2 class="product-description-v2">Relogios</h2>
                             </a>
                         </div>
 
@@ -257,7 +259,7 @@
                                     <img src="https://acdn-us.mitiendanube.com/stores/003/711/885/products/bolsa-de-couro-legitimo-feminina-alca-transversal-5205-2-caee332029a232474717031586744217-1024-1024.png"
                                         alt="" class="product-image-v2">
                                 </div>
-                                <p class="product-description-v2">Bolsas</p>
+                                <h2 class="product-description-v2">Bolsas</h2>
                             </a>
                         </div>
                     </div>
@@ -691,7 +693,6 @@
     </script>
 
 
-    <section id="produtos-principais-fim" style="height: 50px; background-color: #FFFFFF;"></section>
 
     <!-- 1. Seção de Diferenciais/Vantagens (Grid) -->
     <section id="vantagens" class="section-padrao reveal">
@@ -722,12 +723,23 @@
                     <p class="texto-diferencial reveal">Entrega garantida e eficiente para que você vista sua nova peça
                         o quanto antes.</p>
                 </div>
+                <div class="card-diferencial reveal">
+                    <i class="icone-diferencial fa-solid fa-road reveal"></i></i>
+                    <h3 class="subtitulo-diferencial reveal">Transparência Total</h3>
+                    <p class="texto-diferencial reveal">Foco em materiais duráveis e acabamento impecável, garantindo
+                        longevidade a cada peça.</p>
+                </div>
+                <div class="card-diferencial reveal">
+                    <i class="icone-diferencial fa-solid fa-crown reveal"></i>
+                    <h3 class="subtitulo-diferencial reveal">Suporte Humanizado</h3>
+                    <p class="texto-diferencial reveal">Atendimento personalizado, pronto para auxiliar em cada etapa da sua jornada.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 2. Seção de Testemunhos/Prova Social (Carrossel) -->
-    <section id="testemunhos" class="section-padrao fundo-cinza-claro reveal">
+    <section id="testemunhos" class="section-padrao reveal">
         <div class="container-padrao reveal">
             <h2 class="titulo-secao reveal">O Que Nossos Clientes Dizem.</h2>
             <div class="carrossel-testemunhos reveal">
@@ -802,7 +814,7 @@
     </section>
 
     <!-- 5. Seção de Newsletter/Formulário de Contato -->
-    <section id="newsletter" class="section-padrao fundo-cinza-claro reveal">
+    <section id="newsletter" class="section-padrao reveal">
         <div class="container-padrao alinhamento-central reveal">
             <h2 class="titulo-secao reveal">Receba Novidades.</h2>
             <p class="texto-newsletter reveal">Assine nossa newsletter e tenha acesso antecipado a novas coleções,
@@ -812,6 +824,7 @@
                 <button type="submit" class="botao-assinar">Assinar</button>
             </form>
         </div>
+        
     </section>
 
     <script>
@@ -834,4 +847,6 @@
         revealOnScroll();
 
     </script>
+
+
     <%- include ('../includes/footer.ejs') %>

@@ -6,11 +6,11 @@
 <div class="main-wrapper">
         <aside class="sidebar">
             
-          <h2><a href="/landing" class="sidebar-link" data-content="configuracoes-content"><i class="fa-solid fa-house"></i></a>
+          <h2><a href="/" class="sidebar-link" data-content="configuracoes-content"><i class="fa-solid fa-house"></i></a>
                 Lista de Usuarios</h2> 
             <nav class="sidebar-nav">
                 <ul>
-                    <a href="/categorias/novo" class="btn btn-principal">Adicionar categoria</a>
+                    <a href="/usuarios/novo" class="btn btn-principal">Adicionar usuario</a>
                     <li><a href="../admin/dashboard" class="sidebar-link" data-content="dashboard-content">Dashboard</a></li>
                     <li><a href="../produtos/listar" class="sidebar-link" data-content="produtos-content">Produtos</a></li>
                     <li><a href="../categorias/listar" class="sidebar-link " data-content="categorias-content">Categorias</a></li>
@@ -22,16 +22,16 @@
         </aside>
 
         <main class="content">
-             <h2>Lista de Categorias</h2>
+             <h2>Lista de Usuarios</h2>
         
 
         <!-- criando form de pesquisa -->
-        <form action="/categorias/listar" method="get" class="form form-cunsulta">
-            <input type="text" name="busca" placeholder="Buscar por categoria">
+        <form action="/usuarios/listar" method="get" class="form form-cunsulta">
+            <input type="text" name="busca" placeholder="Buscar por usuario">
             <select name="ordem">
-                <option value="nome_categoria">ordenar A-Z</option>
-                <option value="nome_categoria desc">ordenar Z-A</option>
-                <option value="nome_categoria ">categorias geral</option>
+                <option value="nome">ordenar A-Z</option>
+                <option value="nome desc">ordenar Z-A</option>
+                <option value="nome ">categorias geral</option>
                 <!-- <option value="formacao">ordenar por formação</option> -->
             </select>
             <button type="submit" class="btn btn-principal">Buscar</button>

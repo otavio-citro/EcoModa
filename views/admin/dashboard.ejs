@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <title>EcoModa - Painel Administrativo</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/adm.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
 </head>
+
 <body>
-    
-  
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     <div class="main-wrapper">
         <aside class="sidebar">
-<h2><a href="/landing" class="sidebar-link" data-content="configuracoes-content"><i class="fa-solid fa-house"></i></a>
-                Lista de Usuarios</h2>             <nav class="sidebar-nav">
+            <h2><a href="/" class="sidebar-link" data-content="configuracoes-content"><i
+                        class="fa-solid fa-house"></i></a>
+                Lista de Usuarios</h2>
+            <nav class="sidebar-nav">
                 <ul>
-                    <li><a href="../admin/dashboard" class="sidebar-link active" data-content="dashboard-content">Dashboard</a></li>
-                    <li><a href="../produtos/listar" class="sidebar-link" data-content="produtos-content">Produtos</a></li>
-                    <li><a href="../categorias/listar" class="sidebar-link" data-content="categorias-content">Categorias</a></li>
-                    <li><a href="../usuarios/listar" class="sidebar-link" data-content="relatorios-content">Usuarios</a></li>
-                    <li><a href="../admin/logout" class="sidebar-link" data-content="configuracoes-content">Sair</a></li>
-                    
+                    <li><a href="../admin/dashboard" class="sidebar-link active"
+                            data-content="dashboard-content">Dashboard</a></li>
+                    <li><a href="../produtos/listar" class="sidebar-link" data-content="produtos-content">Produtos</a>
+                    </li>
+                    <li><a href="../categorias/listar" class="sidebar-link"
+                            data-content="categorias-content">Categorias</a></li>
+                    <li><a href="../usuarios/listar" class="sidebar-link" data-content="relatorios-content">Usuarios</a>
+                    </li>
+                    <li><a href="../admin/logout" class="sidebar-link" data-content="configuracoes-content">Sair</a>
+                    </li>
+
                 </ul>
             </nav>
         </aside>
 
         <main class="content">
-            
+
             <section id="dashboard-content" class="content-section active-content">
                 <h2 class="page-title">Dashboard Overview</h2>
 
@@ -51,38 +61,54 @@
                         <p class="metric">FATURAMENTO TOTAL</p>
                     </div>
                 </section>
+                <div class="painel-metricas">
+                    <div class="bloco-info">
+                        <p class="rotulo-metrica">produtos</p>
 
+                        <div class="caixa-chart">
+                            <canvas id="grafProdutos"></canvas>
+                        </div>
+
+                    </div>
+                </div>
                 <section class="detailed-content">
                     <h3>Produtos Mais Vendidos</h3>
                     <div class="table-container">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>Produto</th>
                                     <th>Categoria</th>
-                                    <th>Vendas</th>
+                                    <th>Preço</th>
                                     <th>Estoque</th>
                                 </tr>
                             </thead>
+                            
                             <tbody>
-                             
+                                <% for(produto of tabelaProdutos) {%>
+                                <tr>
+                                    <td><%=produto.nome_produto%></td>
+                                    <td><%=produto.nome_categoria%></td>
+                                    <td><%=produto.valor%></td>
+                                    <td><%=produto.quantidade_produto%></td>
+                                </tr>
+                                <% } %>
                             </tbody>
                         </table>
                     </div>
                 </section>
             </section>
-            
+
             <section id="produtos-content" class="content-section">
                 <h2 class="page-title">Gerenciar Produtos 📦</h2>
                 <p>Aqui você pode listar, adicionar, editar ou remover produtos.</p>
             </section>
-            
+
             <section id="categorias-content" class="content-section">
                 <h2 class="page-title">Gerenciar Categorias 🏷️</h2>
                 <p>Gerencie as categorias de produtos da loja.</p>
             </section>
-            
+
             <section id="pedidos-content" class="content-section">
                 <h2 class="page-title">Lista de Pedidos 🛒</h2>
                 <p>Acompanhe todos os pedidos, pendentes e concluídos.</p>
@@ -105,7 +131,30 @@
 
         </main>
     </div>
-    
-    <script src="script.js"></script>
 
-      <%- include ('../includes/footer.ejs') %>
+    <script>
+const produtos = <%- JSON.stringify(graficoProdutos || []) %>;
+
+const nomes = produtos.map(item => item.nome_produto);
+const quant = produtos.map(item => item.quantidade);
+
+const ctx = document.getElementById('grafProdutos').getContext('2d');
+
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: nomes,
+    datasets: [{
+      label: 'Quantidade de produtos ativos',
+      data: quant,
+      backgroundColor: ['#28a657'] 
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false
+  }
+});
+</script>
+
+    <%- include ('../includes/footer.ejs') %>

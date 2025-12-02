@@ -11,4 +11,12 @@ const BD = new Pool(
 
 );
 
+// const BD = new Pool(
+//     {
+//         connectionString: process.env.DATABASE_URL
+//     }
+
+
+// );
+
 module.exports = BD;

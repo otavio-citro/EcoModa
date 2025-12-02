@@ -19,7 +19,7 @@
         <!-- criando form de pesquisa -->
 
 
-<h2><a href="/landing" class="sidebar-link" data-content="configuracoes-content"><i class="fa-solid fa-house"></i></a>
+<h2><a href="/" class="sidebar-link" data-content="configuracoes-content"><i class="fa-solid fa-house"></i></a>
                 Lista de Usuarios</h2>         <nav class="sidebar-nav">
             <ul>
                 <a href="/produtos/novo" class="btn btn-principal">Adicionar Produto</a>
@@ -54,7 +54,7 @@
             <section class="lista-cards">
                 <% for (let produtos of dadosProdutos ) {%>
                     <div class="card-aluno">
-                        <img src="<%= produtos.imagem_produto %>">
+                        <img src="<%= produtos.imagem_produto %>">  
                         <h2>
                             <%= produtos.nome_produto %>
                         </h2>

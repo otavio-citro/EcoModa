@@ -136,4 +136,11 @@ rotas.post('/editar/:id', async (req, res) => {
     res.redirect('/produtos/listar')
 });
 
+rotas.post('/admin/dashboard', async (req, res) => {
+    const nome_produto = req.body.nome_produto;
+    
+    const valor = req.body.valor;
+    const quantidade_produto = req.body.quantidade_produto;
+});
+
 module.exports = rotas

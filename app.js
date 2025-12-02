@@ -3,6 +3,7 @@ const ejs = require('ejs');
 const path = require('path');
 const app = express();
 app.use(express.static('public'));
+const BD = require('./db.js');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -16,17 +17,80 @@ app.use(session({
     saveUninitialized: false  //não criar sessão até que algo seja armazenado
 }));
 
+// const session = require('express-session');
+// const pgSession = require('connect-pg-simple')(session)
+// const { log } = require('console');
+// app.use(session({
+//     store: new pgSession({
+//         pool: BD,
+//         tableName: 'sessoes',
+//         createTableIfMissing: true
+//     }),
+
+//     secret: 'sesisenai',
+//     resave: false,
+//     saveUninitialized: false,
+
+//     cookie: {
+//         maxAge: 1000 * 60 * 60 * 24, //duração da sessao em milissegundos (1 dia)
+//         secure: true // definir como true se estiver testando na vercer senao com false
+//     }
+// }));
+// app.set('trust proxy', 1)
 
 const verificarAutenticacao = (req, res, next) => {
     if (req.session.usuario) {
-       res.locals.usuario = req.session.usuario || null; // Disponibiliza o usuário para as views
-       next(); // Usuário autenticado, prosseguir para a próxima função
+        res.locals.usuario = req.session.usuario || null; // Disponibiliza o usuário para as views
+        next(); // Usuário autenticado, prosseguir para a próxima função
     } else {
-       res.redirect('/admin/login'); // Redireciona para a página de login se não autenticado
+        res.redirect('/admin/login'); // Redireciona para a página de login se não autenticado
     }
 };
+//Gráfico
+// app.get('/admin/dashboard', verificarAutenticacao, async (req, res) => {
+
+//     const qProdutos = await BD.query ('select count(*) as total_produtos from produtos where ativo = true')
+   
+//     const qCategorias = await BD.query ('select count(*) as total_categorias from categorias where ativo = true')
+
+//     const qProdutosCategorias = await BD.query(`
+//         SELECT p.nome_produto
+//         FROM produtos AS p INNER JOIN categorias AS c
+//         ON p.id_categoria = c.id_categoria
+//         GROUP BY p.nome_produto
+//         `);
+
+//     res.render('admin/dashboard', {
+//         total_produtos: qProdutos.rows[0].total_produtos,
+//         total_categorias: qCategorias.rows[0].total_categorias,
+//         produtosCategorias: qProdutosCategorias
+
+//     })
+// });
 
 
+
+app.get('/admin/dashboard', verificarAutenticacao, async (req, res) => {
+
+  const qTotal = await BD.query(
+    `SELECT SUM(quantidade_produto) AS total_produtos FROM produtos WHERE ativo = true`
+  );
+
+  const qGrafico = await BD.query(
+    `SELECT nome_produto, SUM(quantidade_produto) AS quantidade
+     FROM produtos
+     WHERE ativo = true
+     GROUP BY nome_produto`
+  );
+
+  const produtosTotal = await BD.query('SELECT p.nome_produto, c.nome_categoria, p.quantidade_produto, p.valor FROM produtos as p INNER JOIN categorias as c on p.id_categoria = c.id_categoria where p.ativo = true and c.ativo = true')
+
+  res.render('admin/dashboard', {
+    total_produtos: qTotal.rows[0].total_produtos || 0,
+    graficoProdutos: qGrafico.rows, tabelaProdutos: produtosTotal.rows  
+  });
+
+});
 
 //rota da pagina principal "landing page"
 app.get('/', (req, res) => {
@@ -53,7 +117,7 @@ app.use('/usuarios', verificarAutenticacao, usuariosRotas)
 const categoriasRotas = require('./routes/categorias');
 app.use('/categorias', verificarAutenticacao, categoriasRotas)
 
-app.get('/landing', (req, res) => {
+app.get('/', (req, res) => {
     res.render('landing/index');
 });
 

@@ -4,6 +4,7 @@
 
     body {
         margin: 0;
+        background-color: #FAF8F5;
     }
 
     :root {
@@ -77,7 +78,7 @@
     }
 
     .header {
-        background: white;
+        background-color: #FAF8F5 ;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         position: relative;
         z-index: 30;
@@ -88,9 +89,10 @@
     .nav {
         display: flex;
         justify-content: center;
-        gap: 30px;
-        padding: 30px;
+        gap: 20px;
+        padding: 15px;
         position: relative;
+        width: 90%;
     }
 
     .nav a {
@@ -440,7 +442,9 @@
     .product-carousel-section-v2 {
         padding: 60px 0;
         text-align: center;
-        background-color: #f9f9f9;
+           background-color: #FAF8F5;
+
+        
         /* Fundo levemente cinza como na imagem */
     }
 
@@ -456,7 +460,8 @@
         font-size: 36px;
         font-weight: 400;
         color: #333;
-        margin-bottom: 5px;
+        margin-bottom: 20px;
+    
     }
 
     .section-subtitle-v2 {
@@ -503,9 +508,9 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
         /* Sombra sutil */
         text-align: center;
-        padding: 15px;
         transition: box-shadow 0.3s ease;
         overflow: hidden;
+        object-fit: contain;
         /* Garante que a imagem respeite o arredondamento */
     }
 
@@ -531,17 +536,41 @@
 
     }
 
-    .product-image-v2 {
+    .product-image-v2    {
         width: 100%;
         height: 100%;
-        object-fit: contain;
-        transition: transform 0.3s ease;
+        object-fit: fill;
+        transition: 0.3s;
         margin-bottom: 20px;
+      border-radius: 8px;
+      
+
     }
 
-    .product-card-v2:hover .product-image-v2 {
+    
+
+    .product-card-v2:hover {
+        transition: 0.3s;
         transform: scale(1.03);
+        border-radius: 8px;
+        
     }
+
+
+
+.product-card-v2 .product-description-v2 {
+    color: #584133; /* Cor original (Exemplo: Marrom escuro) */
+    transition: color 0.3s ease; /* Adiciona a transição suave */
+}
+
+.product-card-v2:hover .product-description-v2 {
+    color: #036b3b; /* Sua cor de destaque (verde) */
+}
+
+/* Opcional: Efeito no link para ter certeza */
+.product-card-v2 a:hover .product-description-v2 {
+    color: #036b3b; 
+}
 
     .product-description-v2 {
         font-size: 20px;
@@ -550,6 +579,7 @@
         line-height: 1.2;
         min-height: 34px;
         font-weight: 500;
+        border-radius: 8px;
     }
 
     .product-price-v2 {
@@ -627,7 +657,7 @@
         border-radius: 2px;
         /* Arredondamento da barra */
         cursor: pointer;
-        transition: background-color 0.3s, width 0.3s;
+        transition:  0.3s;
         border: none;
         padding: 0;
         outline: none;
@@ -636,7 +666,7 @@
     .indicator-dot-v2.active {
         width: 40px;
         /* Aumenta a largura do indicador ativo */
-        background-color: #000;
+        background-color: #064e3b;
         /* Cor escura para o indicador ativo */
     }
 
@@ -683,9 +713,13 @@
     h4,
     h5,
     h6 {
-        color: var(--cor-preto);
+    
         font-weight: 600;
         margin-top: 0;
+
+    }
+    .titulo-secao, .section-title-v2{
+        color: #4A3B32;
     }
 
     a {
@@ -739,34 +773,31 @@
 
     .card-diferencial {
         padding: 30px;
-        border: 1px solid var(--cor-borda-sutil);
-        transition: box-shadow 0.3s;
         border: none;
         transition: 0.3s;
         border-radius: 8px;
+        cursor: pointer;
+        
+           
     }
 
-    .card-diferencial:hover {
-        box-shadow: 0 5px 15px #03871980;
-        transform: scale(1.1);
-        transition: 0.3s;
-
-
+    .card-diferencial:hover{
+        background-color: #064e3b;
+        color: white;
     }
 
     .icone-diferencial {
         font-size: 3rem;
-        color: var(--cor-preto);
         margin-bottom: 15px;
     }
 
     .subtitulo-diferencial {
         font-size: 1.2rem;
         margin-bottom: 10px;
+      
     }
 
     .texto-diferencial {
-        color: var(--cor-cinza-secundario);
         font-size: 0.95rem;
     }
 
@@ -867,7 +898,7 @@
     }
 
     .indicador-ponto.ativo {
-        background-color: var(--cor-preto);
+        background-color: #036b3b;
         transform: scale(1.2);
     }
 
@@ -984,18 +1015,19 @@
     }
 
     .botao-assinar {
-        background-color: var(--cor-preto);
-        color: var(--cor-branco);
+        background-color:#6B705C ;
+        color: white;
         padding: 15px 30px;
         border: none;
         font-weight: 600;
         text-transform: uppercase;
         cursor: pointer;
         transition: background-color 0.3s;
+        border-radius: 10px;
     }
 
     .botao-assinar:hover {
-        background-color: var(--cor-cinza-secundario);
+        background-color: #505444 ;
     }
 
     .texto-newsletter {
@@ -1285,19 +1317,64 @@
     header {
         background-color: #000000;
         color: white;
-        padding: 15px;
+        padding: 30px;
         text-align: center;
         box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+      max-width: 100%
     }
 
     header>h1 {
         color: #fffefe;
     }
 
+    .header .nav {
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 768px) {
+ 
+  .header .nav {    
+    gap: 10px;
+  }
+}
+
+
+/* INÍCIO: Trecho de CSS para a Tela de Carregamento */
+#loading-overlay {
+    /* Ocupa a tela inteira e garante que fique acima de todo o conteúdo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Fundo branco com leve transparência (ajuste o '0.9' se quiser mais ou menos transparência) */
+    background-color: rgba(255, 255, 255, 0.9); 
+    
+    /* Garante que fique acima de todos os elementos da página */
+    z-index: 9999; 
+    
+    /* Centraliza o spinner horizontal e verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-spinner {
+    /* Define um tamanho para o seu GIF de carregamento. Ajuste conforme o tamanho do seu GIF. */
+    width: 80px; 
+    height: 80px;
+    /* Opcional: Adicione uma animação ou sombra se não estiver usando um GIF */
+}
+/* FIM: Trecho de CSS para a Tela de Carregamento */
+
+
+
     nav>a {
         color: white;
         margin: 0 10px;
         text-decoration: none;
+           
     }
 
 
@@ -1527,3 +1604,50 @@
     .sidebar-link h2:hover {
         color: green;
     }
+    
+
+    .painel-metricas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding: 20px;
+  justify-content: flex-start;
+}
+
+/* Card individual */
+.bloco-info {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  padding: 16px;
+  width: 100%;
+  max-width: 380px; /* limite para telas grandes */
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Título da métrica */
+.rotulo-metrica {
+  font-size: 19px;
+  font-weight: 700;
+  color: #064e3b; /* verde escuro bonito */
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* Caixa container do gráfico */
+.caixa-chart {
+  width: 100%;
+  height: 260px;   /* altura fixa para não esticar */
+  max-height: 260px;
+  position: relative;
+}
+
+/* Canvas ocupa só a caixa */
+#grafProdutos {
+  width: 100% !important;
+  height: 100% !important;
+}
