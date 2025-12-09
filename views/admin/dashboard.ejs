@@ -31,6 +31,8 @@
                             data-content="categorias-content">Categorias</a></li>
                     <li><a href="../usuarios/listar" class="sidebar-link" data-content="relatorios-content">Usuarios</a>
                     </li>
+                    <li><a href="../movimento/listar" class="sidebar-link" data-content="relatorios-content">Movimentação</a>
+                    </li>
                     <li><a href="../admin/logout" class="sidebar-link" data-content="configuracoes-content">Sair</a>
                     </li>
 
@@ -46,19 +48,19 @@
                 <section class="overview-cards">
                     <div class="card">
                         <h3>Total de Produtos</h3>
-                        <p class="metric">TOTAL PRODUTOS</p>
+                        <p class="metric"><%= total_produtos %></p>
                     </div>
                     <div class="card">
                         <h3>Total de Usuários</h3>
-                        <p class="metric">TOTAL USUARIOS</p>
+                        <p class="metric"><%=total_usuarios%></p>
                     </div>
                     <div class="card">
-                        <h3>Pedidos Pendentes</h3>
-                        <p class="metric">PEDIDOS PENDENTES</p>
+                        <h3>Total de Categorias</h3>
+                        <p class="metric"><%=total_categorias%></p>
                     </div>
                     <div class="card">
                         <h3>Faturamento Total</h3>
-                        <p class="metric">FATURAMENTO TOTAL</p>
+                        <p class="metric"><%=total_valor%></p>
                     </div>
                 </section>
                 <div class="painel-metricas">
@@ -91,6 +93,36 @@
                                     <td><%=produto.nome_categoria%></td>
                                     <td><%=produto.valor%></td>
                                     <td><%=produto.quantidade_produto%></td>
+                                </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+                
+            <section class="detailed-content">
+                    <h3>Produtos abaixo do Limite Minimo</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Produto</th>
+                                    <th>Categoria</th>
+                                    <th>Preço</th>
+                                    <th>Estoque</th>
+                                    <th>Limite</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <% for(produto of tabelaMinimo) {%>
+                                <tr>
+                                    <td><%=produto.nome_produto%></td>
+                                    <td><%=produto.nome_categoria%></td>
+                                    <td><%=produto.valor%></td>
+                                    <td><%=produto.quantidade_produto%></td>
+                                    <td><%=produto.limite_minimo%></td>
                                 </tr>
                                 <% } %>
                             </tbody>

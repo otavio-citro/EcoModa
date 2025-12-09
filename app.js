@@ -75,6 +75,25 @@ app.get('/admin/dashboard', verificarAutenticacao, async (req, res) => {
   const qTotal = await BD.query(
     `SELECT SUM(quantidade_produto) AS total_produtos FROM produtos WHERE ativo = true`
   );
+  
+  const qTotalUsuario = await BD.query(
+    `SELECT COUNT(id_usuario) AS total_usuarios FROM usuarios WHERE ativo = TRUE`
+  );
+  
+  const qTotalValor = await BD.query(
+    `SELECT SUM(valor) AS total_valor FROM produtos WHERE ativo = true`
+  );
+  
+  const qTotalCategoria = await BD.query(
+    `SELECT COUNT(id_categoria) AS total_categorias FROM categorias WHERE ativo = true`
+  );
+  
+  const qTabelaMinimo = await BD.query(
+    `SELECT p.nome_produto, c.nome_categoria, p.quantidade_produto, p.valor, p.limite_minimo 
+    FROM produtos as p 
+    INNER JOIN categorias as c on p.id_categoria = c.id_categoria
+    WHERE limite_minimo > quantidade_produto AND p.ativo = true`
+  );
 
   const qGrafico = await BD.query(
     `SELECT nome_produto, SUM(quantidade_produto) AS quantidade
@@ -83,10 +102,14 @@ app.get('/admin/dashboard', verificarAutenticacao, async (req, res) => {
      GROUP BY nome_produto`
   );
 
-  const produtosTotal = await BD.query('SELECT p.nome_produto, c.nome_categoria, p.quantidade_produto, p.valor FROM produtos as p INNER JOIN categorias as c on p.id_categoria = c.id_categoria where p.ativo = true and c.ativo = true')
+  const produtosTotal = await BD.query('SELECT p.nome_produto, c.nome_categoria, p.quantidade_produto, p.valor FROM produtos as p INNER JOIN categorias as c on p.id_categoria = c.id_categoria where p.ativo = true and c.ativo = true and valor >= 90')
 
   res.render('admin/dashboard', {
     total_produtos: qTotal.rows[0].total_produtos || 0,
+    total_valor: qTotalValor.rows[0].total_valor || 0,
+    total_categorias: qTotalCategoria.rows[0].total_categorias || 0,
+    total_usuarios: qTotalUsuario.rows[0].total_usuarios || 0,
+    tabelaMinimo: qTabelaMinimo.rows,  
     graficoProdutos: qGrafico.rows, tabelaProdutos: produtosTotal.rows  
   });
 
@@ -116,6 +139,10 @@ app.use('/usuarios', verificarAutenticacao, usuariosRotas)
 //importando as rotas de categorias
 const categoriasRotas = require('./routes/categorias');
 app.use('/categorias', verificarAutenticacao, categoriasRotas)
+
+//importando as rotas de categorias
+const movimentoRotas = require('./routes/movimento');
+app.use('/movimento', verificarAutenticacao, movimentoRotas)
 
 app.get('/', (req, res) => {
     res.render('landing/index');

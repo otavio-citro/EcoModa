@@ -1261,6 +1261,7 @@
         height: 100%;
         border-radius: 100%;
         object-fit: cover;
+        
     }
 
 
@@ -1467,9 +1468,9 @@
         font-weight: 700;
         margin: 0 0 5px 0;
         color: var(--color-primary);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        /* white-space: nowrap; Jhonatan me explica o que você fez aqui */
+        /* overflow: hidden; */
+        /* text-overflow: ellipsis; */
         /* Adiciona '...' se o nome for muito longo */
     }
 
@@ -1537,7 +1538,7 @@
         color: var(--color-white);
         border: none;
         cursor: pointer;
-        display: inline-block;
+        /* display: inline-block; */
         transition: 0.3s;
         color: white;
     }

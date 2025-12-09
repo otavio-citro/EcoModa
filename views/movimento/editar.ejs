@@ -1,0 +1,35 @@
+<%- include('../includes/header.ejs', {titulo: 'Alterando Movimentação'}) %>
+
+    <div class="produtos-container">
+  <h2>Editar Movimentação <%= m.id_movimentacao %></h2>
+  <form method="POST" action="/movimento/editar/<%= m.id_movimentacao %>" class="form-cadastro-produto">
+    <div class="form-row">
+      <label for="id_produto">Produto:</label>
+      <select id="id_produto" name="id_produto" required>
+        <option value="">Selecione um produto</option>
+        <% produtos.forEach(p => { %>
+          <option value="<%= p.id_produto %>" <%= p.id_produto === m.id_produto ? 'selected' : '' %>>
+            <%= p.nome_produto %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="tipo">Tipo:</label>
+      <select id="tipo" name="tipo" required>
+        <option value="E" <%= m.tipo === 'E' ? 'selected' : '' %>>Entrada</option>
+        <option value="S" <%= m.tipo === 'S' ? 'selected' : '' %>>Saída</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="quantidade_total">Quantidade:</label>
+      <input type="number" id="quantidade_mov" name="quantidade_mov" min="0" value="<%= m.quantidade_total %>" required>
+    </div>
+
+    <button type="submit" class="botao-cadastro">Salvar</button>
+    <a href="/movimento/listar" class="botao-voltar">Cancelar</a>
+  </form>
+</div>
+

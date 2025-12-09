@@ -15,13 +15,14 @@ rotas.post('/login', async (req, res)=>{
     
     const sql = 'SELECT * FROM usuarios WHERE email = $1 AND senha = $2';
     const dados = await BD.query(sql, [email, senha]);
-    console.log(dados);
+    // console.log(dados.rows[0]);
     
 
     if(dados.rows.length == 0){
         res.render('./admin/login.ejs', {mensagem: 'Usuário ou senha inválidos'});
     } else {
         req.session.usuario = dados.rows[0];
+        // console.log("Sessão salva:", req.session.usuario);
         res.redirect('/admin/dashboard');
     }
 });

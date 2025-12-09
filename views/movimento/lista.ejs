@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Moda</title>
+    <link rel="stylesheet" href="../css/adm.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="main-wrapper">
+    
+    <aside class="sidebar">
+
+        <!-- criando form de pesquisa -->
+
+
+<h2><a href="/" class="sidebar-link" data-content="configuracoes-content"><i class="fa-solid fa-house"></i></a>
+                Lista de Usuarios</h2>         <nav class="sidebar-nav">
+            <ul>
+                <a href="/movimento/novo" class="btn btn-principal">Adicionar Movimentação</a>
+                <li><a href="../admin/dashboard" class="sidebar-link" data-content="dashboard-content">Dashboard</a>
+                </li>
+                <li><a href="../produtos/listar" class="sidebar-link active"
+                        data-content="produtos-content">Produtos</a></li>
+                <li><a href="../categorias/listar" class="sidebar-link" data-content="categorias-content">Categorias</a>
+                </li>
+                <li><a href="../usuarios/listar" class="sidebar-link" data-content="relatorios-content">Usuarios</a>
+                </li>
+                <li><a href="../movimento/listar" class="sidebar-link" data-content="relatorios-content">Movimentação</a>
+                </li>
+                <li><a href="../admin/logout" class="sidebar-link" data-content="configuracoes-content">Sair</a>
+                </li>
+               
+            </ul>
+        </nav>
+    </aside>
+
+<div class="produtos-container">
+    <h2>Lista de Movimentações</h2>
+    <a href="/movimento/novo" class="botao-adicionar">Adicionar Movimentações</a>
+    <form method="GET" action="/movimento/listar" class="formulario-busca">
+        <input type="text" name="busca" value="<%= busca || '' %>" placeholder="Buscar...">
+        <button class="botao-buscar">Buscar</button>
+    </form>
+    <table class="border=1" >
+        <tr>
+            <th>Data</th>
+            <th>Tipo</th>
+            <th>Produto</th>
+            <th>Quantidade Prod.</th>
+            <th>Quantidade Mov.</th>
+            <th>Ações</th>
+        </tr>
+        <% movimento.forEach(m=>{ %>
+            <tr>
+                <td>
+                    <%= new Date(m.data_).toLocaleDateString('pt-BR') %>
+                </td>
+                <td>
+                    <%= m.tipo %>
+                </td>
+                <td>
+                    <%= m.nome_produto %>
+                </td>
+                <td>
+                    <%= m.qtde_produto %>
+                </td>
+                <td>
+                    <%= m.quantidade_total %>
+                </td>
+                <td class="acoes">
+                    <a href="/movimento/editar/<%= m.id_movimentacao %>" class="botao-editar">Editar</a>
+                    <form method="POST" action="/movimento/excluir/<%= m.id_movimentacao %>" style="display:inline;">
+                        <button type="submit" class="botao-excluir">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+    <a href="/movimento/listar" class="botao-voltar">Voltar</a>
+</div>
+
+    <%- include ('../includes/footer.ejs') %>
