@@ -135,7 +135,6 @@
 
 
 
-
     /* Dropdown */
     .dropdown {
         position: absolute;
@@ -539,7 +538,7 @@
     .product-image-v2    {
         width: 100%;
         height: 100%;
-        object-fit: fill;
+        object-fit:contain;
         transition: 0.3s;
         margin-bottom: 20px;
       border-radius: 8px;
@@ -547,6 +546,7 @@
 
     }
 
+  
     
 
     .product-card-v2:hover {
@@ -1028,6 +1028,7 @@
 
     .botao-assinar:hover {
         background-color: #505444 ;
+        color: white;
     }
 
     .texto-newsletter {
