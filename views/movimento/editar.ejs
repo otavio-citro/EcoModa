@@ -1,9 +1,9 @@
-<%- include('../includes/header.ejs', {titulo: 'Alterando Movimentação'}) %>
-
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/adm.css">
     <div class="produtos-container">
   <h2>Editar Movimentação <%= m.id_movimentacao %></h2>
-  <form method="POST" action="/movimento/editar/<%= m.id_movimentacao %>" class="form-cadastro-produto">
-    <div class="form-row">
+  <form method="POST" action="/movimento/editar/<%= m.id_movimentacao %>" class="form">
+    <div class="form-group">
       <label for="id_produto">Produto:</label>
       <select id="id_produto" name="id_produto" required>
         <option value="">Selecione um produto</option>
@@ -15,7 +15,7 @@
       </select>
     </div>
 
-    <div class="form-row">
+    <div class="form-group">
       <label for="tipo">Tipo:</label>
       <select id="tipo" name="tipo" required>
         <option value="E" <%= m.tipo === 'E' ? 'selected' : '' %>>Entrada</option>
@@ -23,13 +23,13 @@
       </select>
     </div>
 
-    <div class="form-row">
+    <div class="form-group">
       <label for="quantidade_total">Quantidade:</label>
       <input type="number" id="quantidade_mov" name="quantidade_mov" min="0" value="<%= m.quantidade_total %>" required>
     </div>
 
-    <button type="submit" class="botao-cadastro">Salvar</button>
-    <a href="/movimento/listar" class="botao-voltar">Cancelar</a>
+    <button type="submit" class="btn btn-edit">Salvar</button>
+    <a href="/movimento/listar" class="btn btn-delete">Cancelar</a>
   </form>
 </div>
 

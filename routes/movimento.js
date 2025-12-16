@@ -26,18 +26,19 @@ rotas.get('/novo', async (req, res) => {
 
 rotas.post('/novo', async (req, res) => {
   const { id_produto, tipo, quantidade_mov, id_usuario } = req.body;
-  const qtd = parseInt(quantidade_mov);
+  const qtd = parseFloat(quantidade_mov);
   const descricao = ("Roupa");
   const novo_estoque = (1);
 
   const prod = await BD.query("SELECT * FROM produtos WHERE id_produto=$1", [id_produto]);
 
 
-  let novaQt = prod.rows[0].quantidade_produto;
+  let novaQt = parseFloat(prod.rows[0].quantidade_produto);
   if (tipo === 'E') novaQt += qtd;
   if (tipo === 'S') novaQt -= qtd;
 
-  await BD.query("UPDATE produtos SET quantidade_produto=$1 WHERE id_produto=$2", [novaQt, id_produto]);
+  
+  await BD.query("UPDATE produtos SET quantidade_produto=$1 WHERE id_produto=$2", [parseInt(novaQt), id_produto]);
   await BD.query("INSERT INTO movimentacoes (id_produto, tipo, quantidade_total, id_usuario, descricao, novo_estoque) VALUES ($1,$2,$3,$4,$5,$6)",
     [id_produto, tipo, qtd, id_usuario, descricao, novo_estoque]);
 
@@ -71,7 +72,7 @@ rotas.get('/editar/:id', async (req, res) => {
 rotas.post('/editar/:id', async (req, res) => {
   const { id_produto, tipo, quantidade_mov } = req.body;
   const id = req.params.id;
-  const qtdNova = parseInt(quantidade_mov); //vem da tela
+  const qtdNova = parseFloat(quantidade_mov); //vem da tela
 
   try {
     // Busca movimentação original
@@ -79,13 +80,13 @@ rotas.post('/editar/:id', async (req, res) => {
     if (mov.rowCount === 0) return res.redirect('/movimento/listar');
 
     const movAntiga = mov.rows[0];
-    const qtdAntiga = movAntiga.quantidade_total;
+    const qtdAntiga = parseFloat(movAntiga.quantidade_total);
 
     // Busca produto
     const prod = await BD.query("SELECT * FROM produtos WHERE id_produto=$1", [id_produto]);
     if (prod.rowCount === 0) return res.redirect('/listar');
 
-    let novaQt = prod.rows[0].quantidade_produto;
+    let novaQt = parseFloat(prod.rows[0].quantidade_produto);
 
     // Remove efeito da movimentação antiga
     if (movAntiga.tipo === 'E') novaQt -= qtdAntiga; //Quantidade prod.
@@ -95,7 +96,7 @@ rotas.post('/editar/:id', async (req, res) => {
     if (tipo === 'E') novaQt += qtdNova; //Quantidade Movimento
     if (tipo === 'S') novaQt -= qtdNova; //Quantidade Movimento
 
-    console.log(novaQt, qtdNova, qtdAntiga);
+    //console.log(novaQt, qtdNova, qtdAntiga);
     
     // Atualiza produto
     await BD.query("UPDATE produtos SET quantidade_produto=$1 WHERE id_produto=$2", [parseInt(novaQt), id_produto]);
@@ -132,15 +133,16 @@ rotas.post('/excluir/:id', async (req, res) => {
     return res.redirect('/movimento/lista'); // Produto não encontrado
   }
 
-  let novaQt = prod.rows[0].quantidade_total;
+  let novaQt = parseFloat(prod.rows[0].quantidade_produto);
 
+  console.log(novaQt);
   // Ajusta conforme tipo da movimentação
   if (tipo === 'S') {
-    novaQt += quantidade_total; // devolve estoque
+    novaQt += parseFloat(quantidade_total); // devolve estoque
   } else if (tipo === 'E') {
-    novaQt -= quantidade_total; // retira estoque
+    novaQt -= parseFloat(quantidade_total); // retira estoque
   }
-
+  
   // Atualiza produto
   await BD.query("UPDATE produtos SET quantidade_produto=$1 WHERE id_produto=$2", [novaQt, id_produto]);
 

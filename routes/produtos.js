@@ -63,7 +63,6 @@ rotas.get('/novo', async (req, res) => {
 rotas.post('/novo', async (req, res) => {
     //obtendo os dado do formulario e as guardando em uma variável
     const nome_produto = req.body.nome_produto;
-    const quantidade_produto = req.body.quantidade_produto;
     const imagem_produto = req.body.imagem_produto;
     const limite_minimo = req.body.limite_minimo;
     const descricao = req.body.descricao;
@@ -71,10 +70,10 @@ rotas.post('/novo', async (req, res) => {
     const id_categoria = req.body.id_categoria;
     //const {} = req.body;
 
-    const sql = `INSERT INTO produtos (nome_produto, quantidade_produto, imagem_produto, limite_minimo, descricao, valor, id_categoria )
-                    VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+    const sql = `INSERT INTO produtos (nome_produto, imagem_produto, limite_minimo, descricao, valor, id_categoria )
+                    VALUES ($1, $2, $3, $4, $5, $6)`;
 
-    await BD.query(sql, [nome_produto, quantidade_produto, imagem_produto, limite_minimo, descricao, valor, id_categoria]);
+    await BD.query(sql, [nome_produto, imagem_produto, limite_minimo, descricao, valor, id_categoria]);
 
     res.redirect('/produtos/listar')
 });
@@ -112,7 +111,6 @@ rotas.post('/editar/:id', async (req, res) => {
     //obtendo os dado do formulario e as guardando em uma variável
     const id = req.params.id;
     const nome_produto = req.body.nome_produto;
-    const quantidade_produto = req.body.quantidade_produto;
     const imagem_produto = req.body.imagem_produto;
     const limite_minimo = req.body.limite_minimo;
     const descricao = req.body.descricao;
@@ -123,15 +121,14 @@ rotas.post('/editar/:id', async (req, res) => {
     await BD.query(
             `UPDATE produtos SET
                 nome_produto = $1,
-                quantidade_produto = $2,
-                imagem_produto = $3,
-                limite_minimo = $4,
-                descricao = $5,
-                valor = $6,
-                id_categoria = $7,
-                data_produto = $8
-             WHERE id_produto = $9`,
-            [nome_produto, quantidade_produto, imagem_produto, limite_minimo, descricao, valor, id_categoria, data_produto, id]
+                imagem_produto = $2,
+                limite_minimo = $3,
+                descricao = $4,
+                valor = $5,
+                id_categoria = $6,
+                data_produto = $7
+             WHERE id_produto = $8`,
+            [nome_produto, imagem_produto, limite_minimo, descricao, valor, id_categoria, data_produto, id]
         );
     res.redirect('/produtos/listar')
 });

@@ -1,9 +1,9 @@
- <link rel="stylesheet" href="/css/style.css"> 
-
- <div class="produtos-container">
+ <link rel="stylesheet" href="../css/style.css"> 
+<main>
+ <div class="produtos-container"></div>
   <h2>Cadastrar Movimentação</h2>
-  <form method="POST" action="/movimento/novo" class="form-cadastro-produto">
-    <div class="form-row">
+  <form method="POST" action="/movimento/novo" class="form">
+    <div class="form-group">
       <label for="nome">Produto:</label>
         <select id="id_produto" name="id_produto" required>
             <option value="">Selecione um produto</option>
@@ -12,18 +12,18 @@
             <% }) %>
         </select>
     </div>
-    <div class="form-row">
+    <div class="form-group">
       <label for="estoque_minimo">Tipo:</label>
         <select id="tipo" name="tipo" required>
             <option value="E">Entrada</option>
             <option value="S">Saída</option>
         </select>
     </div>
-    <div class="form-row">
+    <div class="form-group">
       <label for="quantidade_mov">Quantidade:</label>
-      <input type="number" id="quantidade_mov" name="quantidade_mov" min="0" required>
+      <input type="number" id="quantidade_mov" name="quantidade_mov" min="0" required placeholder="Ex: 6">
     </div>
-    <div class="form-row">
+    <div class="form-group">
       <label for="nome">Usuario:</label>
         <select id="id_usuario" name="id_usuario" required>
             <option value="">Selecione um usuario</option>
@@ -32,7 +32,7 @@
             <% }) %>
         </select>
     </div>
-    <button type="submit" class="botao-cadastro">Cadastrar</button>
-    <a href="/movimento/listar" class="botao-voltar">Cancelar</a>
+    <button type="submit" class="btn btn-edit">Cadastrar</button>
+    <a href="/movimento/listar" class="btn btn-delete">Cancelar</a>
   </form>
-</div>
+</main>
